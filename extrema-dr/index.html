@@ -3,26 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Extrema DR — João Castelo Branco, ABC</title>
+  <title>EXTREMA DR — João Castelo Branco, ABC</title>
   <style>
-    :root { --bg: #0b0b0c; --border: rgba(255,255,255,0.08); --text: #ededeb; --dim: #9a9a9e; --accent: #c8a97e; }
+    :root {
+      --bg: #050505; --elevated: #0c0c0d; --border: rgba(255,255,255,0.08);
+      --text: #f0f0ee; --secondary: #8e8e93; --muted: #525257; --accent: #d8c3a5;
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Inter, sans-serif; line-height: 1.75; padding: 3rem 2rem; }
-    .wrap { max-width: 740px; margin: 0 auto; }
-    .back { display: inline-block; font-size: 0.84rem; color: var(--dim); text-decoration: none; margin-bottom: 3rem; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, Inter, sans-serif;
+      -webkit-font-smoothing: antialiased; line-height: 1.75;
+    }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 2.5rem 2.5rem 5rem; }
+    .back {
+      display: inline-block; font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--secondary); text-decoration: none; margin-bottom: 4rem;
+    }
     .back:hover { color: var(--text); }
-    h1 { font-size: 1.8rem; font-weight: 400; margin-bottom: 1rem; }
-    p { color: var(--dim); font-size: 1.02rem; font-weight: 300; margin-bottom: 2rem; }
-    .links { display: flex; gap: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.88rem; }
-    .links a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(200,169,126,0.35); }
+    .kicker { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 0.75rem; }
+    h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; letter-spacing: 0.04em; margin-bottom: 1.25rem; }
+    .lead { max-width: 680px; font-size: 1.05rem; color: var(--secondary); font-weight: 300; margin-bottom: 3rem; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border); border-left: 1px solid var(--border); margin-bottom: 3rem; }
+    @media (max-width: 780px) { .grid { grid-template-columns: 1fr; } }
+    .cell { padding: 2rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .cell span { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 0.85rem; }
+    .cell h3 { font-size: 1.05rem; font-weight: 400; margin-bottom: 0.6rem; }
+    .cell p { font-size: 0.9rem; color: var(--secondary); font-weight: 300; }
+    .actions { display: flex; gap: 2rem; font-size: 0.76rem; letter-spacing: 0.16em; text-transform: uppercase; }
+    .actions a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(216,195,165,0.4); padding-bottom: 3px; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <a href="/" class="back">← João Castelo Branco, ABC</a>
-    <h1>Extrema DR</h1>
-    <p>Aplicativo para avaliar de forma objetiva o Dynamic Range (faixa dinâmica) de câmeras e sensores digitais, baseado na metodologia proprietária de testes de câmera.</p>
-    <div class="links">
+    <span class="kicker">Consultoria e P&amp;D em Cinematografia Digital</span>
+    <h1>EXTREMA DR</h1>
+    <p class="lead">
+      Aplicativo para avaliar de forma objetiva o Dynamic Range (faixa dinâmica) de câmeras e sensores digitais.
+    </p>
+    <div class="grid">
+      <div class="cell">
+        <span>01 / Latitude</span>
+        <h3>Faixa Dinâmica Real</h3>
+        <p>Mensuração objetiva de stops úteis acima e abaixo do cinza médio em condições controladas de ensaio.</p>
+      </div>
+      <div class="cell">
+        <span>02 / Metodologia</span>
+        <h3>Protocolo de Teste</h3>
+        <p>Tradução em software da metodologia de avaliação de câmera desenvolvida em pesquisa aplicada.</p>
+      </div>
+      <div class="cell">
+        <span>03 / Open Source</span>
+        <h3>Código Aberto</h3>
+        <p>Disponível em código aberto para análise comparativa de sensores por fabricantes, locadoras e DFs.</p>
+      </div>
+    </div>
+    <div class="actions">
       <a href="https://github.com/joao-castelo-branco" target="_blank" rel="noopener">Repositório no GitHub →</a>
       <a href="mailto:consultoria@joao-castelo-branco.com">Contato</a>
     </div>

@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>João Castelo Branco, ABC — Diretor de Fotografia / Cinematographer</title>
+  <title>JOÃO CASTELO BRANCO, ABC — Diretor de Fotografia / Cinematographer</title>
   <style>
     :root {
-      --bg: #0b0b0c;
-      --surface: #121214;
+      --bg: #050505;
+      --bg-elevated: #0c0c0d;
       --border: rgba(255, 255, 255, 0.08);
-      --text: #ededeb;
-      --text-dim: #9a9a9e;
-      --text-muted: #5c5c62;
-      --accent: #c8a97e;
+      --border-hover: rgba(255, 255, 255, 0.25);
+      --text: #f0f0ee;
+      --text-secondary: #8e8e93;
+      --text-muted: #525257;
+      --accent: #d8c3a5;
     }
 
     * {
@@ -24,9 +25,10 @@
     html, body {
       background-color: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", Arial, sans-serif;
+      font-family: "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Inter", Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
-      line-height: 1.75;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.7;
     }
 
     a {
@@ -34,497 +36,738 @@
       text-decoration: none;
     }
 
-    /* ================= HEADER MINIMALISTA ================= */
+    /* ================= HEADER (ESTILO YURI MARANHÃO / ŁUKASZ ŻAL) ================= */
     header {
-      border-bottom: 1px solid var(--border);
-      background: rgba(11, 11, 12, 0.94);
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 50;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: linear-gradient(to bottom, rgba(5, 5, 5, 0.92) 0%, rgba(5, 5, 5, 0.72) 75%, transparent 100%);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
 
-    .nav-bar {
-      max-width: 1180px;
+    .header-inner {
+      max-width: 1480px;
       margin: 0 auto;
-      padding: 1.4rem 2rem;
+      padding: 1.6rem 2.5rem;
       display: flex;
       flex-wrap: wrap;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
 
-    .identity {
+    .brand {
       display: flex;
-      flex-wrap: wrap;
       align-items: baseline;
-      gap: 0.75rem;
+      gap: 0.85rem;
     }
 
-    .identity-name {
-      font-size: 1.05rem;
+    .brand-title {
+      font-size: 0.95rem;
       font-weight: 500;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
+      color: var(--text);
     }
 
-    .identity-role {
-      font-size: 0.85rem;
-      color: var(--text-dim);
+    .brand-subtitle {
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
       font-weight: 300;
     }
 
-    nav.menu {
+    nav.primary-nav {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 1.75rem;
-      font-size: 0.85rem;
-      letter-spacing: 0.03em;
+      gap: 2rem;
     }
 
-    .nav-link {
+    .nav-btn {
       background: none;
       border: none;
-      color: var(--text-dim);
-      cursor: pointer;
-      font-size: 0.85rem;
+      color: var(--text-secondary);
       font-family: inherit;
-      padding-bottom: 0.25rem;
-      border-bottom: 1px solid transparent;
-      transition: color 0.2s ease, border-color 0.2s ease;
+      font-size: 0.74rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      position: relative;
+      transition: color 0.25s ease;
     }
 
-    .nav-link:hover {
+    .nav-btn:hover {
       color: var(--text);
     }
 
-    .nav-link.active {
+    .nav-btn.active {
       color: var(--text);
-      border-bottom-color: var(--accent);
     }
 
-    .lang-toggle {
+    .nav-btn.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -2px;
+      height: 1px;
+      background-color: var(--text);
+    }
+
+    .lang-switch {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.4rem;
       margin-left: 0.5rem;
-      padding-left: 1.25rem;
+      padding-left: 1.5rem;
       border-left: 1px solid var(--border);
-      font-size: 0.78rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
       color: var(--text-muted);
     }
 
-    .lang-btn {
+    .lang-opt {
       background: none;
       border: none;
-      color: var(--text-dim);
-      cursor: pointer;
-      font-size: 0.78rem;
+      color: var(--text-secondary);
       font-family: inherit;
-      letter-spacing: 0.05em;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+      transition: color 0.2s ease;
     }
 
-    .lang-btn.active {
+    .lang-opt.active {
       color: var(--text);
       font-weight: 600;
     }
 
-    /* ================= PAGES (ABAS SEM ROLAGEM INFINITA) ================= */
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 3.5rem 2rem 5rem;
+    /* ================= VIEWPORT & PAGES ================= */
+    main {
+      padding-top: 5.5rem;
+      min-height: calc(100vh - 5rem);
     }
 
-    .page-view {
+    .page-section {
       display: none;
-      animation: fadeIn 0.3s ease forwards;
+      animation: fadeScreen 0.38s ease forwards;
     }
 
-    .page-view.active {
+    .page-section.active {
       display: block;
     }
 
-    @keyframes fadeIn {
+    @keyframes fadeScreen {
       from { opacity: 0; }
       to { opacity: 1; }
     }
 
-    /* ================= PÁGINA 1: PORTFÓLIO (PRIMEIRA IMPRESSÃO) ================= */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2.25rem 1.75rem;
+    /* ================= ABA 1: PORTFÓLIO (GALERIA FULL-BLEED / WIDESCREEN) ================= */
+    .portfolio-wrapper {
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 1rem 2.5rem 5rem;
     }
 
-    @media (max-width: 780px) {
-      .portfolio-grid {
+    .filter-strip {
+      display: flex;
+      gap: 1.75rem;
+      margin-bottom: 2rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .filter-btn {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-family: inherit;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      color: var(--text);
+    }
+
+    .cinema-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .cinema-grid {
         grid-template-columns: 1fr;
+      }
+      .header-inner, .portfolio-wrapper {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
       }
     }
 
-    .work-item {
+    .film-card {
+      position: relative;
+      cursor: pointer;
       display: block;
     }
 
-    .work-frame {
+    .film-card.hidden {
+      display: none;
+    }
+
+    .film-still {
       width: 100%;
       aspect-ratio: 2.39 / 1;
-      background-color: var(--surface);
+      background-color: #0e0e10;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .film-still img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+      filter: brightness(0.92);
+    }
+
+    .film-card:hover .film-still img {
+      transform: scale(1.025);
+      filter: brightness(1);
+    }
+
+    .still-placeholder-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .film-overlay-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: 0.7rem;
+      gap: 1rem;
+    }
+
+    .film-name {
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .film-credit {
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.04em;
+    }
+
+    /* Lightbox Modal para Still / Reel */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(3, 3, 4, 0.96);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .lightbox-frame {
+      width: 100%;
+      aspect-ratio: 2.39 / 1;
+      background: #0d0d0f;
       border: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-bottom: 0.75rem;
-      overflow: hidden;
-      transition: border-color 0.25s ease;
+      margin-bottom: 1.25rem;
     }
 
-    .work-item:hover .work-frame {
-      border-color: rgba(255, 255, 255, 0.24);
-    }
-
-    .work-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .work-caption {
+    .lightbox-bar {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
-      font-size: 0.88rem;
+      align-items: center;
     }
 
-    .work-title {
+    .lightbox-close {
+      background: none;
+      border: 1px solid var(--border);
       color: var(--text);
-      font-weight: 400;
+      padding: 0.45rem 1rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
     }
 
-    .work-meta {
-      color: var(--text-dim);
-      font-size: 0.8rem;
-    }
-
-    /* ================= PÁGINA 2: SOBRE / VISÃO (TEXTOS ORIGINAIS DO CANVA) ================= */
-    .editorial-column {
-      max-width: 740px;
-    }
-
-    .editorial-lead {
-      font-size: 1.25rem;
-      line-height: 1.85;
-      color: var(--text);
-      font-weight: 300;
-      margin-bottom: 3rem;
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .editorial-bio {
-      font-size: 1.02rem;
-      line-height: 1.85;
-      color: var(--text-dim);
-      font-weight: 300;
-    }
-
-    /* ================= PÁGINA 3: CONSULTORIA E P&D EM CINEMATOGRAFIA DIGITAL ================= */
-    .consultancy-header {
-      max-width: 760px;
-      margin-bottom: 3rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .consultancy-header h1 {
-      font-size: 1.55rem;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      margin-bottom: 1rem;
-    }
-
-    .consultancy-header p {
-      color: var(--text-dim);
-      font-size: 1rem;
-      font-weight: 300;
-    }
-
-    .consultancy-list {
+    /* ================= ABA 2: SOBRE (TEXTOS ORIGINAIS DO CANVA) ================= */
+    .about-container {
       max-width: 820px;
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
     }
 
-    .consultancy-item {
-      padding-bottom: 2.25rem;
+    .statement-block {
+      font-size: clamp(1.15rem, 1.8vw, 1.38rem);
+      line-height: 1.85;
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 3.5rem;
+      padding-bottom: 3rem;
       border-bottom: 1px solid var(--border);
     }
 
-    .consultancy-item:last-child {
-      border-bottom: none;
-    }
-
-    .consultancy-item h2 {
-      font-size: 1.12rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 0.6rem;
-    }
-
-    .consultancy-item p {
-      font-size: 0.96rem;
-      color: var(--text-dim);
+    .bio-block {
+      font-size: 1rem;
+      line-height: 1.9;
       font-weight: 300;
+      color: var(--text-secondary);
+    }
+
+    /* ================= ABA 3: CONSULTORIA E P&D (ESTILO LIGHT IRON / TRIBE 7 / CROMORAMA) ================= */
+    .rd-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 6rem;
+    }
+
+    .rd-hero {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 3rem;
+      margin-bottom: 3.5rem;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: end;
+    }
+
+    @media (max-width: 860px) {
+      .rd-hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .rd-kicker {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
       margin-bottom: 0.85rem;
     }
 
-    .subtle-link {
-      font-size: 0.84rem;
-      color: var(--accent);
-      border-bottom: 1px solid rgba(200, 169, 126, 0.35);
-      padding-bottom: 2px;
-      transition: border-color 0.2s ease;
+    .rd-hero h1 {
+      font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
     }
 
-    .subtle-link:hover {
-      border-bottom-color: var(--accent);
+    .rd-hero p {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      font-weight: 300;
+      line-height: 1.8;
     }
 
-    /* ================= PÁGINA 4: CONTATO ================= */
-    .contact-section {
-      max-width: 640px;
+    /* Grid Arquitetônico de Consultoria e P&D */
+    .rd-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid var(--border);
+      border-left: 1px solid var(--border);
+    }
+
+    @media (max-width: 820px) {
+      .rd-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .rd-cell {
+      padding: 2.75rem 2.5rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background-color: var(--bg);
+      transition: background-color 0.3s ease;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      justify-content: space-between;
     }
 
-    .contact-row {
-      padding-bottom: 1.75rem;
-      border-bottom: 1px solid var(--border);
+    .rd-cell:hover {
+      background-color: var(--bg-elevated);
     }
 
-    .contact-label {
-      font-size: 0.78rem;
+    .rd-index {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
       color: var(--text-muted);
+      margin-bottom: 1.25rem;
       display: block;
-      margin-bottom: 0.4rem;
     }
 
-    .contact-value {
-      font-size: 1.05rem;
+    .rd-cell h2 {
+      font-size: 1.35rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin-bottom: 1rem;
       color: var(--text);
     }
 
-    .contact-value:hover {
+    .rd-cell p {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .rd-meta-line {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .rd-action {
+      color: var(--accent);
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: opacity 0.2s ease;
+    }
+
+    .rd-action:hover {
+      opacity: 0.75;
+    }
+
+    /* ================= ABA 4: CONTATO ================= */
+    .contact-container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    .contact-item {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .contact-type {
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .contact-mail {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--text);
+      transition: color 0.2s ease;
+    }
+
+    .contact-mail:hover {
       color: var(--accent);
     }
 
-    /* ================= FOOTER DISCRETO ================= */
+    /* ================= FOOTER ================= */
     footer {
-      max-width: 1180px;
+      max-width: 1480px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 2rem 2.5rem;
       border-top: 1px solid var(--border);
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
-      font-size: 0.78rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       color: var(--text-muted);
     }
 
-    .footer-links {
+    .footer-nav {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
     }
 
-    .footer-links a:hover {
-      color: var(--text-dim);
+    .footer-nav a:hover {
+      color: var(--text);
     }
   </style>
 </head>
 <body>
 
-  <!-- CABEÇALHO LIMPO COM ABAS E SELETOR PT / ENG -->
+  <!-- CABEÇALHO FIXO MINIMALISTA -->
   <header>
-    <div class="nav-bar">
-      <div class="identity">
-        <a href="#portfolio" onclick="openTab('portfolio')" class="identity-name">João Castelo Branco, ABC</a>
-        <span class="identity-role" data-i18n="role">diretor de fotografia</span>
-      </div>
+    <div class="header-inner">
+      <a href="#portfolio" onclick="switchPage('portfolio')" class="brand">
+        <span class="brand-title">João Castelo Branco, ABC</span>
+        <span class="brand-subtitle" data-i18n="role">Diretor de Fotografia</span>
+      </a>
 
-      <nav class="menu" aria-label="Navegação principal">
-        <button id="tab-portfolio" class="nav-link active" onclick="openTab('portfolio')" data-i18n="navPortfolio">
+      <nav class="primary-nav" aria-label="Menu principal">
+        <button id="nav-portfolio" class="nav-btn active" onclick="switchPage('portfolio')" data-i18n="navPortfolio">
           Portfólio
         </button>
-        <button id="tab-sobre" class="nav-link" onclick="openTab('sobre')" data-i18n="navAbout">
+        <button id="nav-sobre" class="nav-btn" onclick="switchPage('sobre')" data-i18n="navAbout">
           Sobre
         </button>
-        <button id="tab-consultoria" class="nav-link" onclick="openTab('consultoria')" data-i18n="navConsultancy">
+        <button id="nav-consultoria" class="nav-btn" onclick="switchPage('consultoria')" data-i18n="navConsultancy">
           Consultoria e P&amp;D em cinematografia digital
         </button>
-        <button id="tab-contato" class="nav-link" onclick="openTab('contato')" data-i18n="navContact">
+        <button id="nav-contato" class="nav-btn" onclick="switchPage('contato')" data-i18n="navContact">
           Contato
         </button>
 
-        <div class="lang-toggle" aria-label="Idioma">
-          <button id="btn-pt" class="lang-btn active" onclick="setLang('pt')">PT</button>
+        <div class="lang-switch" aria-label="Idioma">
+          <button id="lang-pt" class="lang-opt active" onclick="setLanguage('pt')">PT</button>
           <span>/</span>
-          <button id="btn-en" class="lang-btn" onclick="setLang('en')">ENG</button>
+          <button id="lang-en" class="lang-opt" onclick="setLanguage('en')">ENG</button>
         </div>
       </nav>
     </div>
   </header>
 
-  <main class="container">
+  <main>
 
-    <!-- ========================================================= -->
-    <!-- ABA 1: PORTFÓLIO (ABERTURA / PRIMEIRA IMPRESSÃO)          -->
-    <!-- ========================================================= -->
-    <section id="page-portfolio" class="page-view active">
-      <div class="portfolio-grid">
-        <article class="work-item">
-          <div class="work-frame">Still / Frame 01</div>
-          <div class="work-caption">
-            <span class="work-title" data-i18n="work1Title">Título do Projeto 01</span>
-            <span class="work-meta" data-i18n="work1Meta">Longa-metragem • Dir. Nome</span>
-          </div>
-        </article>
+    <!-- =================================================================== -->
+    <!-- ABA 1: PORTFÓLIO (PRIMEIRA IMPRESSÃO — ESTILO YURI MARANHÃO / ŻAL)   -->
+    <!-- =================================================================== -->
+    <section id="screen-portfolio" class="page-section active">
+      <div class="portfolio-wrapper">
+        <div class="filter-strip">
+          <button class="filter-btn active" onclick="filterWorks('all', this)" data-i18n="filterAll">Todos</button>
+          <button class="filter-btn" onclick="filterWorks('feature', this)" data-i18n="filterFeature">Longas</button>
+          <button class="filter-btn" onclick="filterWorks('series', this)" data-i18n="filterSeries">Séries</button>
+          <button class="filter-btn" onclick="filterWorks('short', this)" data-i18n="filterShort">Curtas</button>
+        </div>
 
-        <article class="work-item">
-          <div class="work-frame">Still / Frame 02</div>
-          <div class="work-caption">
-            <span class="work-title" data-i18n="work2Title">Título do Projeto 02</span>
-            <span class="work-meta" data-i18n="work2Meta">Série • Dir. Nome</span>
-          </div>
-        </article>
+        <div class="cinema-grid">
+          <article class="film-card" data-category="feature" onclick="openLightbox('Obra 01', 'Longa-metragem • Direção')">
+            <div class="film-still">
+              <span class="still-placeholder-label">Still 2.39:1 — Obra 01</span>
+            </div>
+            <div class="film-overlay-info">
+              <h2 class="film-name" data-i18n="w1Title">Título do Longa 01</h2>
+              <span class="film-credit" data-i18n="w1Meta">Longa-metragem • Dir. Nome</span>
+            </div>
+          </article>
 
-        <article class="work-item">
-          <div class="work-frame">Still / Frame 03</div>
-          <div class="work-caption">
-            <span class="work-title" data-i18n="work3Title">Título do Projeto 03</span>
-            <span class="work-meta" data-i18n="work3Meta">Longa-metragem • Dir. Nome</span>
-          </div>
-        </article>
+          <article class="film-card" data-category="series" onclick="openLightbox('Obra 02', 'Série • Direção')">
+            <div class="film-still">
+              <span class="still-placeholder-label">Still 2.39:1 — Obra 02</span>
+            </div>
+            <div class="film-overlay-info">
+              <h2 class="film-name" data-i18n="w2Title">Título da Série 02</h2>
+              <span class="film-credit" data-i18n="w2Meta">Série • Dir. Nome</span>
+            </div>
+          </article>
 
-        <article class="work-item">
-          <div class="work-frame">Still / Frame 04</div>
-          <div class="work-caption">
-            <span class="work-title" data-i18n="work4Title">Título do Projeto 04</span>
-            <span class="work-meta" data-i18n="work4Meta">Série • Dir. Nome</span>
-          </div>
-        </article>
+          <article class="film-card" data-category="feature" onclick="openLightbox('Obra 03', 'Longa-metragem • Direção')">
+            <div class="film-still">
+              <span class="still-placeholder-label">Still 2.39:1 — Obra 03</span>
+            </div>
+            <div class="film-overlay-info">
+              <h2 class="film-name" data-i18n="w3Title">Título do Longa 03</h2>
+              <span class="film-credit" data-i18n="w3Meta">Longa-metragem • Dir. Nome</span>
+            </div>
+          </article>
 
-        <article class="work-item">
-          <div class="work-frame">Still / Frame 05</div>
-          <div class="work-caption">
-            <span class="work-title" data-i18n="work5Title">Título do Projeto 05</span>
-            <span class="work-meta" data-i18n="work5Meta">Longa-metragem • Dir. Nome</span>
-          </div>
-        </article>
+          <article class="film-card" data-category="series" onclick="openLightbox('Obra 04', 'Série • Direção')">
+            <div class="film-still">
+              <span class="still-placeholder-label">Still 2.39:1 — Obra 04</span>
+            </div>
+            <div class="film-overlay-info">
+              <h2 class="film-name" data-i18n="w4Title">Título da Série 04</h2>
+              <span class="film-credit" data-i18n="w4Meta">Série • Dir. Nome</span>
+            </div>
+          </article>
 
-        <article class="work-item">
-          <div class="work-frame">Still / Frame 06</div>
-          <div class="work-caption">
-            <span class="work-title" data-i18n="work6Title">Título do Projeto 06</span>
-            <span class="work-meta" data-i18n="work6Meta">Curta-metragem • Dir. Nome</span>
-          </div>
-        </article>
+          <article class="film-card" data-category="feature" onclick="openLightbox('Obra 05', 'Longa-metragem • Direção')">
+            <div class="film-still">
+              <span class="still-placeholder-label">Still 2.39:1 — Obra 05</span>
+            </div>
+            <div class="film-overlay-info">
+              <h2 class="film-name" data-i18n="w5Title">Título do Longa 05</h2>
+              <span class="film-credit" data-i18n="w5Meta">Longa-metragem • Dir. Nome</span>
+            </div>
+          </article>
+
+          <article class="film-card" data-category="short" onclick="openLightbox('Obra 06', 'Curta-metragem • Direção')">
+            <div class="film-still">
+              <span class="still-placeholder-label">Still 2.39:1 — Obra 06</span>
+            </div>
+            <div class="film-overlay-info">
+              <h2 class="film-name" data-i18n="w6Title">Título do Curta 06</h2>
+              <span class="film-credit" data-i18n="w6Meta">Curta-metragem • Dir. Nome</span>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- ========================================================= -->
-    <!-- ABA 2: SOBRE (TEXTOS INTEGRAIS DO ANTIGO SITE DO CANVA)   -->
-    <!-- ========================================================= -->
-    <section id="page-sobre" class="page-view">
-      <div class="editorial-column">
-        <p class="editorial-lead" data-i18n="canvaStatement">
+    <!-- =================================================================== -->
+    <!-- ABA 2: SOBRE (TEXTOS INTEGRAIS DO CANVA)                            -->
+    <!-- =================================================================== -->
+    <section id="screen-sobre" class="page-section">
+      <div class="about-container">
+        <p class="statement-block" data-i18n="canvaStatement">
           Direção de fotografia é traduzir histórias imaginadas em fotografias em movimento. A construção da imagem começa muito cedo no meu processo, desde a leitura atenta do roteiro e da escuta cuidadosa da proposta da direção. O olhar está sempre guiado pela narrativa, em cada escolha, seja a luz que entra pela janela, o movimento que descortina uma ação, o desfoque no primeiro plano, o azul que esfria uma noite. No processo a fotografia se constrói.
         </p>
 
-        <p class="editorial-bio" data-i18n="canvaBio">
+        <p class="bio-block" data-i18n="canvaBio">
           Formado em ciências sociais pela UFPR, em fotografia pela FAMU (Praga - Rep. Tcheca) e com estudos em história da fotografia na EHESS (Paris-FR). João começou sua carreira como fotógrafo e laboratorista em 1998. Dez anos depois encontraria sua verdadeira vocação na direção de fotografia de cinema. Já colaborou com diretores de diversas nacionalidades, em projetos em mais de 10 países, com longas, séries e curtas que circulam alguns dos principais festivais de cinema do Brasil e do exterior. Em 2019, foi selecionado para o programa Talent Demo do festival Camerimage, que destaca novos talentos na direção de fotografia mundial. Atualmente é membro do conselho da ABC (Associação Brasileira de Cinematografia) e um dos organizadores do Prêmio ABC de Cinematografia.
         </p>
       </div>
     </section>
 
-    <!-- ========================================================= -->
-    <!-- ABA 3: CONSULTORIA E P&D EM CINEMATOGRAFIA DIGITAL        -->
-    <!-- ========================================================= -->
-    <section id="page-consultoria" class="page-view">
-      <div class="consultancy-header">
-        <h1 data-i18n="consTitle">Consultoria e P&amp;D em cinematografia digital</h1>
-        <p data-i18n="consIntro">
-          Atuação técnica junto a fabricantes de câmeras, desenvolvedores de ferramentas de imagem e canais de exibição, fundamentada na experiência prática em produções de cinema e séries e na pesquisa contínua sobre sensores, colorimetria e fluxos de trabalho digitais.
-        </p>
-      </div>
-
-      <div class="consultancy-list">
-        <div class="consultancy-item">
-          <h2 data-i18n="consCanonTitle">Canon do Brasil</h2>
-          <p data-i18n="consCanonDesc">
-            Consultoria técnica para a Canon do Brasil na avaliação de sistemas de câmera de cinema digital, testes de campo, análise de ciência de cor e interlocução entre as demandas reais de produção e o desenvolvimento de produto.
+    <!-- =================================================================== -->
+    <!-- ABA 3: CONSULTORIA E P&D EM CINEMATOGRAFIA DIGITAL                  -->
+    <!-- (ESTÉTICA LIGHT IRON / TRIBE 7 / CROMORAMA)                         -->
+    <!-- =================================================================== -->
+    <section id="screen-consultoria" class="page-section">
+      <div class="rd-container">
+        <div class="rd-hero">
+          <div>
+            <span class="rd-kicker" data-i18n="rdKicker">Pesquisa, Desenvolvimento &amp; Fluxo Digital</span>
+            <h1 data-i18n="rdTitle">Consultoria e P&amp;D em cinematografia digital</h1>
+          </div>
+          <p data-i18n="rdIntro">
+            Atuação junto a fabricantes de câmeras, desenvolvedores de ferramentas de cor e canais de exibição — traduzindo a experiência prática de set e a pesquisa contínua sobre sensores e colorimetria em protocolos de avaliação e ferramentas digitais.
           </p>
         </div>
 
-        <div class="consultancy-item">
-          <h2 data-i18n="consMethodTitle">Metodologia de Teste de Câmera</h2>
-          <p data-i18n="consMethodDesc">
-            Protocolo de avaliação desenvolvido ao longo de anos de pesquisa aplicada para investigar o comportamento real de sensores digitais — latitude, resposta em altas luzes, piso de ruído e consistência cromática.
-          </p>
-        </div>
+        <div class="rd-grid">
+          <div class="rd-cell">
+            <div>
+              <span class="rd-index">01 / FABRICANTES</span>
+              <h2 data-i18n="rd1Title">Canon do Brasil</h2>
+              <p data-i18n="rd1Desc">
+                Consultoria técnica para a Canon do Brasil na avaliação de sistemas de câmera de cinema digital, testes de campo em condições reais de filmagem, análise de ciência de cor e interlocução entre as demandas da produção audiovisual e o desenvolvimento de produto.
+              </p>
+            </div>
+            <div class="rd-meta-line">
+              <span data-i18n="rd1Tag">Sistemas de Câmera &amp; Ciência de Cor</span>
+              <span>CANON</span>
+            </div>
+          </div>
 
-        <div class="consultancy-item">
-          <h2>Extrema DR</h2>
-          <p data-i18n="consExtremaDesc">
-            Aplicativo desenvolvido para avaliar de forma objetiva o Dynamic Range (faixa dinâmica) de câmeras e sensores digitais.
-          </p>
-          <a href="/extrema-dr/" class="subtle-link" data-i18n="consExtremaLink">Página do projeto e repositório GitHub →</a>
-        </div>
+          <div class="rd-cell">
+            <div>
+              <span class="rd-index">02 / PROTOCOLO</span>
+              <h2 data-i18n="rd2Title">Metodologia de Teste de Câmera</h2>
+              <p data-i18n="rd2Desc">
+                Protocolo proprietário desenvolvido ao longo de anos de pesquisa aplicada para investigar objetivamente o comportamento de sensores digitais — latitude real, resposta em altas luzes, piso de ruído e consistência cromática.
+              </p>
+            </div>
+            <div class="rd-meta-line">
+              <span data-i18n="rd2Tag">Avaliação de Sensores &amp; Latitude</span>
+              <span>R&amp;D</span>
+            </div>
+          </div>
 
-        <div class="consultancy-item">
-          <h2>Matiz</h2>
-          <p data-i18n="consMatizDesc">
-            Aplicativo de criação de look e ferramentas simplificadas para DIT (Digital Imaging Technician) no set.
-          </p>
-          <a href="/matiz/" class="subtle-link" data-i18n="consMatizLink">Página do projeto e repositório GitHub →</a>
+          <div class="rd-cell">
+            <div>
+              <span class="rd-index">03 / SOFTWARE</span>
+              <h2>Extrema DR</h2>
+              <p data-i18n="rd3Desc">
+                Aplicativo desenvolvido para avaliar de forma precisa e objetiva o Dynamic Range (faixa dinâmica) de câmeras e sensores digitais a partir de ensaios padronizados.
+              </p>
+            </div>
+            <div class="rd-meta-line">
+              <span data-i18n="rd3Tag">Análise de Dynamic Range</span>
+              <a href="/extrema-dr/" class="rd-action" data-i18n="rd3Link">Página &amp; GitHub →</a>
+            </div>
+          </div>
+
+          <div class="rd-cell">
+            <div>
+              <span class="rd-index">04 / ON-SET DIT &amp; LOOK</span>
+              <h2>Matiz</h2>
+              <p data-i18n="rd4Desc">
+                Aplicativo de criação de look e conjunto de ferramentas simplificadas para DIT (Digital Imaging Technician) no set, mantendo consistência cromática entre captação, monitoramento e pós-produção.
+              </p>
+            </div>
+            <div class="rd-meta-line">
+              <span data-i18n="rd4Tag">Look Creation &amp; DIT Workflow</span>
+              <a href="/matiz/" class="rd-action" data-i18n="rd4Link">Página &amp; GitHub →</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ========================================================= -->
-    <!-- ABA 4: CONTATO                                            -->
-    <!-- ========================================================= -->
-    <section id="page-contato" class="page-view">
-      <div class="contact-section">
-        <div class="contact-row">
-          <span class="contact-label" data-i18n="contactCinemaLabel">Direção de Fotografia — Cinema e Séries</span>
-          <a href="mailto:contato@joao-castelo-branco.com" class="contact-value">contato@joao-castelo-branco.com</a>
+    <!-- =================================================================== -->
+    <!-- ABA 4: CONTATO                                                      -->
+    <!-- =================================================================== -->
+    <section id="screen-contato" class="page-section">
+      <div class="contact-container">
+        <div class="contact-item">
+          <span class="contact-type" data-i18n="cCinemaLabel">Direção de Fotografia — Cinema e Séries</span>
+          <a href="mailto:contato@joao-castelo-branco.com" class="contact-mail">contato@joao-castelo-branco.com</a>
         </div>
 
-        <div class="contact-row">
-          <span class="contact-label" data-i18n="contactTechLabel">Consultoria e P&amp;D em Cinematografia Digital</span>
-          <a href="mailto:consultoria@joao-castelo-branco.com" class="contact-value">consultoria@joao-castelo-branco.com</a>
+        <div class="contact-item">
+          <span class="contact-type" data-i18n="cTechLabel">Consultoria e P&amp;D em Cinematografia Digital</span>
+          <a href="mailto:consultoria@joao-castelo-branco.com" class="contact-mail">consultoria@joao-castelo-branco.com</a>
         </div>
 
-        <div class="contact-row">
-          <span class="contact-label" data-i18n="contactInstLabel">Referências Institucionais &amp; Código</span>
-          <div style="display: flex; gap: 1.5rem; margin-top: 0.4rem;">
-            <a href="https://abcine.org.br" target="_blank" rel="noopener" class="subtle-link">ABC</a>
-            <a href="https://www.imdb.com" target="_blank" rel="noopener" class="subtle-link">IMDb</a>
-            <a href="https://github.com/joao-castelo-branco" target="_blank" rel="noopener" class="subtle-link">GitHub</a>
+        <div class="contact-item">
+          <span class="contact-type" data-i18n="cInstLabel">Associação &amp; Repositórios</span>
+          <div style="display: flex; gap: 1.75rem;">
+            <a href="https://abcine.org.br" target="_blank" rel="noopener" class="rd-action">ABC</a>
+            <a href="https://www.imdb.com" target="_blank" rel="noopener" class="rd-action">IMDb</a>
+            <a href="https://github.com/joao-castelo-branco" target="_blank" rel="noopener" class="rd-action">GitHub</a>
           </div>
         </div>
       </div>
@@ -532,9 +775,23 @@
 
   </main>
 
+  <!-- LIGHTBOX PARA VISUALIZAÇÃO DE FRAMES / CENA -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <div class="lightbox-frame" id="lb-media">FRAME 2.39:1</div>
+      <div class="lightbox-bar">
+        <div>
+          <div class="film-name" id="lb-title">Título</div>
+          <div class="film-credit" id="lb-meta">Créditos</div>
+        </div>
+        <button class="lightbox-close" onclick="closeLightbox()" data-i18n="lbClose">Fechar [ESC]</button>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <span>João Castelo Branco, ABC</span>
-    <div class="footer-links">
+    <div class="footer-nav">
       <a href="https://abcine.org.br" target="_blank" rel="noopener">ABC</a>
       <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb</a>
       <a href="https://github.com/joao-castelo-branco" target="_blank" rel="noopener">GitHub</a>
@@ -542,92 +799,112 @@
   </footer>
 
   <script>
-    const i18n = {
+    const dictionary = {
       pt: {
-        role: "diretor de fotografia",
+        role: "Diretor de Fotografia",
         navPortfolio: "Portfólio",
         navAbout: "Sobre",
         navConsultancy: "Consultoria e P&D em cinematografia digital",
         navContact: "Contato",
-        work1Title: "Título do Projeto 01",
-        work1Meta: "Longa-metragem • Dir. Nome",
-        work2Title: "Título do Projeto 02",
-        work2Meta: "Série • Dir. Nome",
-        work3Title: "Título do Projeto 03",
-        work3Meta: "Longa-metragem • Dir. Nome",
-        work4Title: "Título do Projeto 04",
-        work4Meta: "Série • Dir. Nome",
-        work5Title: "Título do Projeto 05",
-        work5Meta: "Longa-metragem • Dir. Nome",
-        work6Title: "Título do Projeto 06",
-        work6Meta: "Curta-metragem • Dir. Nome",
+        filterAll: "Todos",
+        filterFeature: "Longas",
+        filterSeries: "Séries",
+        filterShort: "Curtas",
+        w1Title: "Título do Longa 01",
+        w1Meta: "Longa-metragem • Dir. Nome",
+        w2Title: "Título da Série 02",
+        w2Meta: "Série • Dir. Nome",
+        w3Title: "Título do Longa 03",
+        w3Meta: "Longa-metragem • Dir. Nome",
+        w4Title: "Título da Série 04",
+        w4Meta: "Série • Dir. Nome",
+        w5Title: "Título do Longa 05",
+        w5Meta: "Longa-metragem • Dir. Nome",
+        w6Title: "Título do Curta 06",
+        w6Meta: "Curta-metragem • Dir. Nome",
         canvaStatement: "Direção de fotografia é traduzir histórias imaginadas em fotografias em movimento. A construção da imagem começa muito cedo no meu processo, desde a leitura atenta do roteiro e da escuta cuidadosa da proposta da direção. O olhar está sempre guiado pela narrativa, em cada escolha, seja a luz que entra pela janela, o movimento que descortina uma ação, o desfoque no primeiro plano, o azul que esfria uma noite. No processo a fotografia se constrói.",
         canvaBio: "Formado em ciências sociais pela UFPR, em fotografia pela FAMU (Praga - Rep. Tcheca) e com estudos em história da fotografia na EHESS (Paris-FR). João começou sua carreira como fotógrafo e laboratorista em 1998. Dez anos depois encontraria sua verdadeira vocação na direção de fotografia de cinema. Já colaborou com diretores de diversas nacionalidades, em projetos em mais de 10 países, com longas, séries e curtas que circulam alguns dos principais festivais de cinema do Brasil e do exterior. Em 2019, foi selecionado para o programa Talent Demo do festival Camerimage, que destaca novos talentos na direção de fotografia mundial. Atualmente é membro do conselho da ABC (Associação Brasileira de Cinematografia) e um dos organizadores do Prêmio ABC de Cinematografia.",
-        consTitle: "Consultoria e P&D em cinematografia digital",
-        consIntro: "Atuação técnica junto a fabricantes de câmeras, desenvolvedores de ferramentas de imagem e canais de exibição, fundamentada na experiência prática em produções de cinema e séries e na pesquisa contínua sobre sensores, colorimetria e fluxos de trabalho digitais.",
-        consCanonTitle: "Canon do Brasil",
-        consCanonDesc: "Consultoria técnica para a Canon do Brasil na avaliação de sistemas de câmera de cinema digital, testes de campo, análise de ciência de cor e interlocução entre as demandas reais de produção e o desenvolvimento de produto.",
-        consMethodTitle: "Metodologia de Teste de Câmera",
-        consMethodDesc: "Protocolo de avaliação desenvolvido ao longo de anos de pesquisa aplicada para investigar o comportamento real de sensores digitais — latitude, resposta em altas luzes, piso de ruído e consistência cromática.",
-        consExtremaDesc: "Aplicativo desenvolvido para avaliar de forma objetiva o Dynamic Range (faixa dinâmica) de câmeras e sensores digitais.",
-        consExtremaLink: "Página do projeto e repositório GitHub →",
-        consMatizDesc: "Aplicativo de criação de look e ferramentas simplificadas para DIT (Digital Imaging Technician) no set.",
-        consMatizLink: "Página do projeto e repositório GitHub →",
-        contactCinemaLabel: "Direção de Fotografia — Cinema e Séries",
-        contactTechLabel: "Consultoria e P&D em Cinematografia Digital",
-        contactInstLabel: "Referências Institucionais & Código"
+        rdKicker: "Pesquisa, Desenvolvimento & Fluxo Digital",
+        rdTitle: "Consultoria e P&D em cinematografia digital",
+        rdIntro: "Atuação junto a fabricantes de câmeras, desenvolvedores de ferramentas de cor e canais de exibição — traduzindo a experiência prática de set e a pesquisa contínua sobre sensores e colorimetria em protocolos de avaliação e ferramentas digitais.",
+        rd1Title: "Canon do Brasil",
+        rd1Desc: "Consultoria técnica para a Canon do Brasil na avaliação de sistemas de câmera de cinema digital, testes de campo em condições reais de filmagem, análise de ciência de cor e interlocução entre as demandas da produção audiovisual e o desenvolvimento de produto.",
+        rd1Tag: "Sistemas de Câmera & Ciência de Cor",
+        rd2Title: "Metodologia de Teste de Câmera",
+        rd2Desc: "Protocolo proprietário desenvolvido ao longo de anos de pesquisa aplicada para investigar objetivamente o comportamento de sensores digitais — latitude real, resposta em altas luzes, piso de ruído e consistência cromática.",
+        rd2Tag: "Avaliação de Sensores & Latitude",
+        rd3Desc: "Aplicativo desenvolvido para avaliar de forma precisa e objetiva o Dynamic Range (faixa dinâmica) de câmeras e sensores digitais a partir de ensaios padronizados.",
+        rd3Tag: "Análise de Dynamic Range",
+        rd3Link: "Página & GitHub →",
+        rd4Desc: "Aplicativo de criação de look e conjunto de ferramentas simplificadas para DIT (Digital Imaging Technician) no set, mantendo consistência cromática entre captação, monitoramento e pós-produção.",
+        rd4Tag: "Look Creation & DIT Workflow",
+        rd4Link: "Página & GitHub →",
+        cCinemaLabel: "Direção de Fotografia — Cinema e Séries",
+        cTechLabel: "Consultoria e P&D em Cinematografia Digital",
+        cInstLabel: "Associação & Repositórios",
+        lbClose: "Fechar [ESC]"
       },
       en: {
-        role: "cinematographer",
+        role: "Cinematographer",
         navPortfolio: "Portfolio",
         navAbout: "About",
         navConsultancy: "Consulting & R&D in digital cinematography",
         navContact: "Contact",
-        work1Title: "Project Title 01",
-        work1Meta: "Feature Film • Dir. Name",
-        work2Title: "Project Title 02",
-        work2Meta: "Series • Dir. Name",
-        work3Title: "Project Title 03",
-        work3Meta: "Feature Film • Dir. Name",
-        work4Title: "Project Title 04",
-        work4Meta: "Series • Dir. Name",
-        work5Title: "Project Title 05",
-        work5Meta: "Feature Film • Dir. Name",
-        work6Title: "Project Title 06",
-        work6Meta: "Short Film • Dir. Name",
+        filterAll: "All",
+        filterFeature: "Features",
+        filterSeries: "Series",
+        filterShort: "Shorts",
+        w1Title: "Feature Film Title 01",
+        w1Meta: "Feature Film • Dir. Name",
+        w2Title: "Series Title 02",
+        w2Meta: "Series • Dir. Name",
+        w3Title: "Feature Film Title 03",
+        w3Meta: "Feature Film • Dir. Name",
+        w4Title: "Series Title 04",
+        w4Meta: "Series • Dir. Name",
+        w5Title: "Feature Film Title 05",
+        w5Meta: "Feature Film • Dir. Name",
+        w6Title: "Short Film Title 06",
+        w6Meta: "Short Film • Dir. Name",
         canvaStatement: "Cinematography is the translation of imagined stories into moving images. The construction of the photography begins early in my process, from a close reading of the script to an attentive listening to the director’s vision. The focus is always to the narrative, which guides every choice — whether it is the light filtering through a window, the movement revealing an action, the blur in the foreground, or the blue tint that cools the night. Through the process, the cinematography takes shape.",
         canvaBio: "Graduated in Social Sciences from UFPR (Curitiba, Brazil), in Photography from FAMU (Prague, Czech Republic), and with studies in the History of Photography at EHESS (Paris, France). João began his career as a photographer and a darkroom printer technician in 1998. Along the way he discovered his true vocation in cinematography. He has collaborated with directors of various nationalities on projects in more than ten countries, working on feature films, series, and short films that have been screened at important film festivals around the world. In 2019, he was selected for the Talent Demo program at the Camerimage festival, which highlights emerging talents in cinematography worldwide. He is currently a board member of ABC (Associação Brasileira de Cinematografia) and one of the organizers of the ABC Cinematography Awards.",
-        consTitle: "Consulting & R&D in digital cinematography",
-        consIntro: "Technical advisory for camera manufacturers, imaging tool developers, and exhibition platforms, grounded in hands-on experience in feature films and series and ongoing research into sensors, colorimetry, and digital workflows.",
-        consCanonTitle: "Canon Brazil",
-        consCanonDesc: "Technical consulting for Canon Brazil on digital cinema camera evaluation, field testing, color science analysis, and bridging real-world production demands with product development.",
-        consMethodTitle: "Camera Testing Methodology",
-        consMethodDesc: "Evaluation protocol developed over years of applied research to investigate the real-world behavior of digital sensors — latitude, highlight roll-off, noise floor, and color consistency.",
-        consExtremaDesc: "Application developed to objectively evaluate the Dynamic Range of digital cameras and sensors.",
-        consExtremaLink: "Project page and GitHub repository →",
-        consMatizDesc: "Application for look creation and simplified tools for on-set DIT (Digital Imaging Technician).",
-        consMatizLink: "Project page and GitHub repository →",
-        contactCinemaLabel: "Cinematography — Feature Films & Series",
-        contactTechLabel: "Consulting & R&D in Digital Cinematography",
-        contactInstLabel: "Institutional References & Code"
+        rdKicker: "Research, Development & Digital Workflow",
+        rdTitle: "Consulting & R&D in digital cinematography",
+        rdIntro: "Advisory work with camera manufacturers, color tool developers, and exhibition platforms — translating on-set experience and ongoing research into sensors and colorimetry into evaluation protocols and digital tools.",
+        rd1Title: "Canon Brazil",
+        rd1Desc: "Technical consulting for Canon Brazil on digital cinema camera evaluation, real-world field testing, color science analysis, and bridging production demands with product development.",
+        rd1Tag: "Camera Systems & Color Science",
+        rd2Title: "Camera Testing Methodology",
+        rd2Desc: "Proprietary protocol developed over years of applied research to objectively investigate digital sensor behavior — true latitude, highlight roll-off, noise floor, and color consistency.",
+        rd2Tag: "Sensor & Latitude Evaluation",
+        rd3Desc: "Application developed to accurately and objectively evaluate the Dynamic Range of digital cameras and sensors through standardized testing.",
+        rd3Tag: "Dynamic Range Analysis",
+        rd3Link: "Page & GitHub →",
+        rd4Desc: "Application for look creation and simplified tools for on-set DIT (Digital Imaging Technician), maintaining color consistency from capture and monitoring to post-production.",
+        rd4Tag: "Look Creation & DIT Workflow",
+        rd4Link: "Page & GitHub →",
+        cCinemaLabel: "Cinematography — Feature Films & Series",
+        cTechLabel: "Consulting & R&D in Digital Cinematography",
+        cInstLabel: "Society & Repositories",
+        lbClose: "Close [ESC]"
       }
     };
 
-    function openTab(tabName) {
-      document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.nav-link').forEach(btn => btn.classList.remove('active'));
+    function switchPage(pageId) {
+      document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
 
-      document.getElementById('page-' + tabName).classList.add('active');
-      document.getElementById('tab-' + tabName).classList.add('active');
+      document.getElementById('screen-' + pageId).classList.add('active');
+      document.getElementById('nav-' + pageId).classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function setLang(lang) {
+    function setLanguage(lang) {
       document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-      document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('lang-pt').classList.toggle('active', lang === 'pt');
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
 
-      const dict = i18n[lang];
+      const dict = dictionary[lang];
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (dict[key]) {
@@ -635,6 +912,33 @@
         }
       });
     }
+
+    function filterWorks(category, btnEl) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btnEl.classList.add('active');
+
+      document.querySelectorAll('.film-card').forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    function openLightbox(title, meta) {
+      document.getElementById('lb-title').textContent = title;
+      document.getElementById('lb-meta').textContent = meta;
+      document.getElementById('lightbox').classList.add('open');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
   </script>
 </body>
 </html>
