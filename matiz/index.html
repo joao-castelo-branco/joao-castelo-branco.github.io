@@ -3,61 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matiz — Look Creation & On-Set DIT Tools | João Castelo Branco, ABC</title>
+  <title>Matiz — João Castelo Branco, ABC</title>
   <style>
-    :root {
-      --bg: #090a0c; --card: #12151b; --border: rgba(255,255,255,0.1);
-      --text: #f2f2f0; --muted: #a1a6b0; --accent: #4ea8de;
-    }
+    :root { --bg: #0b0b0c; --border: rgba(255,255,255,0.08); --text: #ededeb; --dim: #9a9a9e; --accent: #c8a97e; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: var(--bg); color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
-      line-height: 1.65; padding: 2rem 1.5rem;
-    }
-    .container { max-width: 860px; margin: 0 auto; }
-    .back { display: inline-block; font-size: 0.85rem; color: var(--muted); text-decoration: none; margin-bottom: 3rem; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Inter, sans-serif; line-height: 1.75; padding: 3rem 2rem; }
+    .wrap { max-width: 740px; margin: 0 auto; }
+    .back { display: inline-block; font-size: 0.84rem; color: var(--dim); text-decoration: none; margin-bottom: 3rem; }
     .back:hover { color: var(--text); }
-    .badge { display: inline-block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); border: 1px solid rgba(78,168,222,0.4); padding: 0.25rem 0.7rem; border-radius: 999px; margin-bottom: 1rem; }
-    h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; margin-bottom: 1rem; }
-    .lead { font-size: 1.1rem; color: var(--muted); margin-bottom: 2.5rem; }
-    .actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 3.5rem; }
-    .btn {
-      padding: 0.75rem 1.4rem; border-radius: 6px; font-size: 0.92rem; font-weight: 500; text-decoration: none;
-      border: 1px solid var(--border); background: var(--card); color: var(--text);
-    }
-    .btn-primary { background: rgba(78,168,222,0.15); border-color: var(--accent); color: var(--accent); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
-    .box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; }
-    .box h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
-    .box p { font-size: 0.9rem; color: var(--muted); }
+    h1 { font-size: 1.8rem; font-weight: 400; margin-bottom: 1rem; }
+    p { color: var(--dim); font-size: 1.02rem; font-weight: 300; margin-bottom: 2rem; }
+    .links { display: flex; gap: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.88rem; }
+    .links a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(200,169,126,0.35); }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="wrap">
     <a href="/" class="back">← João Castelo Branco, ABC</a>
-    <span class="badge">Open Source • Color & On-Set DIT</span>
     <h1>Matiz</h1>
-    <p class="lead">
-      Aplicativo voltado à criação ágil de looks e ferramentas simplificadas para DIT (Digital Imaging Technician) no set de filmagem.
-    </p>
-    <div class="actions">
-      <a href="https://github.com/joao-castelo-branco" target="_blank" rel="noopener" class="btn btn-primary">Repositório no GitHub →</a>
-      <a href="mailto:consultoria@joao-castelo-branco.com" class="btn">Contato Técnico</a>
-    </div>
-    <div class="grid">
-      <div class="box">
-        <h3>Look Creation</h3>
-        <p>Construção rápida de curvas e referências cromáticas diretamente a partir das necessidades narrativas da cena.</p>
-      </div>
-      <div class="box">
-        <h3>On-Set DIT</h3>
-        <p>Interface limpa e objetiva para operação em set sem atritos, mantendo consistência entre câmera e pós-produção.</p>
-      </div>
-      <div class="box">
-        <h3>Código Aberto</h3>
-        <p>Desenvolvido para transparência técnica e colaboração com diretores de fotografia, coloristas e engenheiros.</p>
-      </div>
+    <p>Aplicativo de criação de look e ferramentas simplificadas para DIT (Digital Imaging Technician) no set.</p>
+    <div class="links">
+      <a href="https://github.com/joao-castelo-branco" target="_blank" rel="noopener">Repositório no GitHub →</a>
+      <a href="mailto:consultoria@joao-castelo-branco.com">Contato</a>
     </div>
   </div>
 </body>
