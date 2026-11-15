@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACES 2.0 — João Castelo Branco, ABC</title>
+  <style>
+    :root {
+      --bg: #050505;
+      --elevated: #0c0c0d;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f0f0ee;
+      --secondary: #9c9ca1;
+      --muted: #5a5a60;
+      --accent: #d8c3a5;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Inter", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.85;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(5, 5, 5, 0.94);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 1.4rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .back-link {
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover { color: var(--text); }
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+    .lang-opt {
+      background: none;
+      border: none;
+      color: var(--secondary);
+      font-family: inherit;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+    }
+    .lang-opt.active { color: var(--text); font-weight: 600; }
+
+    article.essay {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+    .essay-meta {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    h1 {
+      font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.75rem;
+    }
+    .author {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text);
+      margin: 2.75rem 0 1rem;
+      letter-spacing: 0.01em;
+    }
+    p {
+      font-size: 1.02rem;
+      font-weight: 300;
+      color: var(--secondary);
+      margin-bottom: 1.45rem;
+    }
+    blockquote {
+      margin: 2rem 0;
+      padding: 1.25rem 1.5rem;
+      border-left: 1px solid var(--accent);
+      background: var(--elevated);
+      color: var(--text);
+      font-size: 0.96rem;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+    ul {
+      margin: 1rem 0 1.75rem 1.25rem;
+      color: var(--secondary);
+      font-weight: 300;
+      font-size: 0.98rem;
+    }
+    li { margin-bottom: 0.65rem; }
+    a.inline-ref {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(216, 195, 165, 0.35);
+    }
+    .lang-block { display: none; }
+    .lang-block.active { display: block; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <a href="/#sobre-a-cinematografia" class="back-link" id="back-txt">← Sobre a cinematografia</a>
+      <div class="lang-switch">
+        <button id="btn-pt" class="lang-opt active" onclick="setEssayLang('pt')">PT</button>
+        <span>/</span>
+        <button id="btn-en" class="lang-opt" onclick="setEssayLang('en')">ENG</button>
+      </div>
+    </div>
+  </header>
+
+  <article class="essay">
+    <!-- VERSÃO PORTUGUÊS -->
+    <div id="content-pt" class="lang-block active">
+      <span class="essay-meta">Ensaio Técnico • Color Science &amp; Workflow</span>
+      <h1>ACES 2.0: uma porta para criação de looks para além dos LUTs tradicionais</h1>
+      <div class="author">João Castelo Branco, ABC</div>
+
+      <p>A ideia inicial desse artigo foi bastante simples: testar o novo ACES 2.0 (The Academy Color Encoding System). Em paralelo, fiz alguns trabalhos para a Canon, testando e produzindo materiais para sua última câmera de cinema, a Canon EOS C400. Assim, decidi testar o novo ACES com as imagens da nova câmera. No entanto, ao fazer isso, me deparo com questões mais importantes do que as meramente técnicas sobre a atualização de um sistema de codificação de cores. O que me aparece nesse caminho é uma possibilidade clara de poder criar características que imagino para meus projetos de uma maneira ao mesmo tempo mais experimental e com resultados mais uniformes e assertivos.</p>
+
+      <p>Há alguns anos venho trabalhando nas versões mais antigas do ACES; agora sua atualização promete corrigir algumas questões com a reprodução das cores e deve solidificar e popularizar esses fluxos para uma gama maior de aplicações. Até a sua versão anterior, a 1.3, havia uma questão para mim no resultado direto da imagem produzida pelo ACES: somente com a transformação simples, me parecia muito contrastada e com tons de pele menos agradáveis do que as transformações de espaço de cor feitas por outros processos. Assim, quando os processos me exigiam o uso do ACES por algum motivo — o uso de mais de um tipo de câmera, composição com elementos criados por computação gráfica (CGI) e intervenções de efeitos especiais (VFX) dos mais diversos — sempre me impôs uma pesquisa mais intensa para alcançar um resultado que teria um atalho caso eu optasse pelas transformações nativas do DaVinci Resolve ou mesmo o LUT disponibilizado pelo fabricante.</p>
+
+      <p>A escolha de um método de gerenciamento de cores, longe de ser um processo homogêneo e automático, impacta de maneiras diferentes o resultado final da imagem. Nos processos analógicos, testamos diferentes tipos de negativos e formas de processamento fotoquímico e, seguindo os processos testados, o resultado final na tela do cinema é relativamente seguro — quase como na escolha da ótica. Nos processos digitais, os "looks" criados na pré-produção sempre me pareceram bastante limitados e dependentes de muitos ajustes posteriores para funcionar, e o mais seguro acaba sendo ficar com a ciência de cor do fabricante.</p>
+
+      <p>O estudo dos processos digitais me permitiu entender que a câmera escolhida não precisa ser o principal ponto das escolhas das características da imagem. Ao contrário disso, feito um processo competente de gerenciamento de cores, as diferenças entre câmeras têm mais a ver com processos práticos na captação — como ergonomia ou intervalo dinâmico — do que com a estética final da imagem.</p>
+
+      <blockquote>
+        “Como cineastas, será que podemos identificar, isolar e compreender qualquer desses atributos implícitos [a uma imagem] de modo que possamos manipulá-los com intenção para nossos próprios fins, ou estaremos para sempre relegados à condição de consumidores, navegando entre soluções pré-empacotadas e ostentando o emblema de fidelidade à marca que escolhemos?”<br /><br />
+        “[...] a maior parte da aparência perceptiva da imagem provém da preparação matemática da imagem para exibição numa tela, e não do formato da câmera. Isso significa que, se conseguirmos identificar os atributos que nos interessam, podemos controlá-los e esculpi-los com precisão e de forma individual.” — Steve Yedlin, <em>On Color Science for Filmmakers</em>
+      </blockquote>
+
+      <p>Com o ACES, além da flexibilidade para trabalhar com diferentes equipamentos e processos, me atrai a possibilidade técnica de operar em um espaço fotométrico <em>scene-referred</em>, cuja base matemática opera em lógica linear (como os sensores interpretam a luz). Um problema dos LUTs tradicionais é que operam como uma matriz 3D em espaços intermediários, substituindo valores RGB ponto a ponto — o que faz com que um show LUT desenvolvido em uma condição específica de luz falhe em outras situações de contraste ou saturação, além de não contemplar adaptações entre diferentes tecnologias de exibição.</p>
+
+      <h2>Fluxo Tradicional vs. Fluxo ACES 2.0</h2>
+      <p>Enquanto pipelines tradicionais encadeiam OETF, EOTF e OOTF frequentemente dependentes de LUTs 3D aplicados já próximos do espaço de exibição, o ACES mapeia o sinal log da câmera por meio de um <em>Input Transform</em> para o espaço linear <em>scene-referred</em> AP0 (SMPTE ST 2065-1), utilizando o espaço de trabalho AP1 (ACEScct para correção de cor e ACEScg para VFX/CGI) e finalizando com um <em>Rendering Transform</em> complexo baseado no modelo perceptual JMh (luminosidade percebida J, colorido M e matiz H).</p>
+
+      <h2>Ensaios com a Canon EOS C400 e LMTs no Set</h2>
+      <p>Nos testes comparativos realizados com a Canon EOS C400 — confrontando ACES 1.3, ACES 2.0, DaVinci CST e o LUT oficial da Canon — o ACES 2.0 apresentou uma curva inicial mais equilibrada, com menor contraste excessivo nas altas luzes (77% IRE contra 86% IRE no ACES 1.3), melhor separação entre sombras e tons médios, preservação superior de detalhes em baixas luzes sob iluminação azul saturada e tons de pele mais naturais sem necessidade de correção prévia.</p>
+
+      <p>Mais importante, a combinação do ACES 2.0 com <em>Look Modification Transforms</em> (LMTs) exportados em formato <code>.clf</code> operando em espaço linear AP0 permite construir looks com comportamento subtrativo de cor (densidade cromática próxima à lógica dos corantes de película) que respondem de maneira previsível e uniforme sob diferentes condições de iluminação, exposição e contraste no set.</p>
+    </div>
+
+    <!-- VERSÃO INGLÊS -->
+    <div id="content-en" class="lang-block">
+      <span class="essay-meta">Technical Essay • Color Science &amp; Workflow</span>
+      <h1>ACES 2.0: A Gateway to Look Creation Beyond Traditional LUTs</h1>
+      <div class="author">João Castelo Branco, ABC</div>
+
+      <p>The initial idea for this article was quite simple: to test the new ACES 2.0 (The Academy Color Encoding System). At the same time, I was doing some work for Canon, testing and producing content for their latest cinema camera, the Canon EOS C400. So I decided to test the new ACES using images from this new camera. However, while doing so, I came across more important questions than those merely technical aspects of a color encoding system update. What emerged was a clear possibility of crafting characteristics I envision for my projects in a way that is both more experimental and more consistent, with more predictable results.</p>
+
+      <p>For several years, I have been working with earlier versions of ACES. This update promises to correct some issues with color rendering and should consolidate and popularize these workflows across a broader range of applications. Up to version 1.3, there was an issue for me with the direct image output from ACES: the default transform looked too contrasty and skin tones were less pleasing than other color space transform methods. So, when workflows required me to use ACES — due to multi-camera setups, CGI elements, or various VFX processes — it always demanded extra research to achieve a result that I could otherwise reach faster using DaVinci Resolve's native color space transforms or manufacturer LUTs.</p>
+
+      <p>Choosing a color management method, far from being a homogeneous or automatic process, affects the final image in different ways. In analog workflows, we test different negatives and photochemical processes, and once the pipeline is defined, the final image is relatively secure — much like lens selection. In digital workflows, the "looks" created during pre-production have always seemed limited and dependent on many later adjustments.</p>
+
+      <p>Studying digital processes shows us that camera choice does not dictate image characteristics. On the contrary, with competent color management, differences between cameras relate more to practical concerns — such as ergonomics, dynamic range, and exposure latitude — than to final image aesthetics.</p>
+
+      <blockquote>
+        "Can we as filmmakers identify, isolate and understand any of these underlying attributes so that we can manipulate them meaningfully for ourselves, or are we forever relegated to the status of shoppers; browsing for pre-packaged solutions and then wearing the badge of brand allegiance to the one we select?"<br /><br />
+        "[...] the substantial part of the perceptual look comes from the mathematical preparation of the image for display and not from the camera format. This means that if we can identify the attributes that matter to us, we can control and sculpt them precisely and individually... regardless of camera type." — Steve Yedlin, <em>On Color Science for Filmmakers</em> (2017)
+      </blockquote>
+
+      <p>With ACES, beyond the flexibility to work with different equipment and processes, I am drawn to the technical possibility of working in a photometric scene-referred space, whose mathematical base operates in linear logic. One problem with traditional LUTs is that they operate as a 3D matrix in intermediate color spaces, replacing RGB values point to point — meaning a show LUT developed in a specific lighting condition may fail in others and does not account for adaptations across different display technologies.</p>
+
+      <h2>Non-ACES vs. ACES 2.0 Pipeline</h2>
+      <p>Whereas non-ACES pipelines chain OETF, EOTF, and OOTF often relying on display-referred LUTs, ACES maps the camera's log signal via an Input Transform into the linear scene-referred AP0 space (SMPTE ST 2065-1), using AP1 working spaces (ACEScct for grading and ACEScg for VFX/CGI) and concluding with a perceptual JMh-based Rendering Transform (perceived lightness J, colorfulness M, and hue H).</p>
+
+      <h2>Canon EOS C400 Tests &amp; On-Set LMTs</h2>
+      <p>In comparative tests shot on the Canon EOS C400 — evaluating ACES 1.3, ACES 2.0, DaVinci CST, and Canon's official LUT — ACES 2.0 delivered a cleaner default rendering with smoother highlight roll-off (77% IRE vs. 86% IRE in ACES 1.3), improved shadow-to-midtone separation, superior shadow retention under saturated blue light, and more natural skin tones prior to grading.</p>
+
+      <p>More importantly, combining ACES 2.0 with Look Modification Transforms (LMTs) exported as <code>.clf</code> files operating in scene-linear AP0 allows cinematographers to build subtractive color density looks that respond consistently across varied lighting, contrast, and exposure ratios on set.</p>
+    </div>
+  </article>
+
+  <script>
+    function setEssayLang(lang) {
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+      document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('content-pt').classList.toggle('active', lang === 'pt');
+      document.getElementById('content-en').classList.toggle('active', lang === 'en');
+      document.getElementById('back-txt').textContent = lang === 'pt' ? '← Sobre a cinematografia' : '← On Cinematography';
+    }
+  </script>
+</body>
+</html>
