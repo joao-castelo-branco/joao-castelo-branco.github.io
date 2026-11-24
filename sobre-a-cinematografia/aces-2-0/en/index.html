@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACES 2.0: A Gateway to Look Creation Beyond Traditional LUTs — João Castelo Branco, ABC</title>
+  <meta name="description" content="Field tests with the Canon EOS C400 comparing ACES 1.3, ACES 2.0, DaVinci CST, and manufacturer LUTs, alongside on-set LMT (.clf) look creation." />
+  <meta name="author" content="João Castelo Branco, ABC" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Bilingual SEO & Canonical URLs -->
+  <link rel="canonical" href="https://joao-castelo-branco.com/sobre-a-cinematografia/aces-2-0/en/" />
+  <link rel="alternate" hreflang="pt-BR" href="https://joao-castelo-branco.com/sobre-a-cinematografia/aces-2-0/" />
+  <link rel="alternate" hreflang="en" href="https://joao-castelo-branco.com/sobre-a-cinematografia/aces-2-0/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://joao-castelo-branco.com/sobre-a-cinematografia/aces-2-0/" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="pt_BR" />
+  <meta property="og:site_name" content="João Castelo Branco, ABC" />
+  <meta property="og:title" content="ACES 2.0: A Gateway to Look Creation Beyond Traditional LUTs" />
+  <meta property="og:description" content="Comparative Canon EOS C400 tests across ACES 1.3, ACES 2.0, DaVinci CST, LUTs, and scene-referred LMT (.clf) look creation." />
+  <meta property="og:url" content="https://joao-castelo-branco.com/sobre-a-cinematografia/aces-2-0/en/" />
+  <meta property="og:image" content="https://joao-castelo-branco.com/sobre-a-cinematografia/aces-2-0/images-en/image41.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ACES 2.0: A Gateway to Look Creation Beyond Traditional LUTs" />
+  <meta name="twitter:description" content="Comparative Canon EOS C400 tests across ACES 1.3, ACES 2.0, DaVinci CST, and scene-referred LMT (.clf) look creation." />
+  <meta name="twitter:image" content="https://joao-castelo-branco.com/sobre-a-cinematografia/aces-2-0/images-en/image41.jpg" />
+
+  <!-- Schema.org Structured Data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "ACES 2.0: A Gateway to Look Creation Beyond Traditional LUTs",
+    "inLanguage": "en",
+    "url": "https://joao-castelo-branco.com/sobre-a-cinematografia/aces-2-0/en/",
+    "image": "https://joao-castelo-branco.com/sobre-a-cinematografia/aces-2-0/images-en/image41.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "João Castelo Branco, ABC",
+      "url": "https://joao-castelo-branco.com"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "João Castelo Branco, ABC"
+    },
+    "translationOfWork": {
+      "@type": "TechArticle",
+      "inLanguage": "pt-BR",
+      "url": "https://joao-castelo-branco.com/sobre-a-cinematografia/aces-2-0/",
+      "headline": "ACES 2.0 uma porta para criação de looks para além dos LUTs tradicionais"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #050505;
+      --elevated: #0c0c0d;
+      --card: #101012;
+      --border: rgba(255, 255, 255, 0.09);
+      --border-strong: rgba(255, 255, 255, 0.22);
+      --text: #f0f0ee;
+      --secondary: #b4b4ba;
+      --muted: #6c6c73;
+      --accent: #d8c3a5;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Inter", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.85;
+    }
+
+    /* ================= HEADER STICKY ================= */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(5, 5, 5, 0.94);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 60;
+    }
+
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 1.35rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .back-link {
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover { color: var(--text); }
+
+    .header-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .share-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--secondary);
+      font-family: inherit;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.75rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .share-btn:hover {
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    .lang-opt {
+      text-decoration: none;
+      color: var(--secondary);
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      padding: 0.2rem 0.35rem;
+      transition: color 0.2s ease;
+    }
+
+    .lang-opt:hover { color: var(--text); }
+
+    .lang-opt.active {
+      color: var(--text);
+      font-weight: 600;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    /* ================= CONTAINER DO ARTIGO ================= */
+    article.essay {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6.5rem;
+    }
+
+    .essay-meta {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    h1 {
+      font-size: clamp(1.85rem, 3.4vw, 2.55rem);
+      font-weight: 400;
+      line-height: 1.24;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.85rem;
+      color: var(--text);
+    }
+
+    .author-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      font-size: 1.38rem;
+      font-weight: 400;
+      color: var(--text);
+      margin: 3.4rem 0 1.25rem;
+      letter-spacing: 0.01em;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    p {
+      font-size: 1.03rem;
+      font-weight: 300;
+      color: var(--secondary);
+      margin-bottom: 1.45rem;
+      max-width: 740px;
+    }
+
+    blockquote {
+      margin: 2.1rem 0;
+      padding: 1.35rem 1.65rem;
+      border-left: 2px solid var(--accent);
+      background: var(--elevated);
+      color: var(--text);
+      font-size: 0.98rem;
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 740px;
+    }
+
+    blockquote .cite-src {
+      display: block;
+      margin-top: 0.75rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    ul {
+      margin: 1rem 0 1.85rem 1.35rem;
+      color: var(--secondary);
+      font-weight: 300;
+      font-size: 1rem;
+      max-width: 740px;
+    }
+
+    li { margin-bottom: 0.75rem; }
+
+    code {
+      font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+      font-size: 0.9em;
+      color: var(--accent);
+      background: rgba(216, 195, 165, 0.08);
+      padding: 0.1rem 0.35rem;
+      border-radius: 3px;
+    }
+
+    a.inline-ref {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(216, 195, 165, 0.4);
+    }
+
+    a.inline-ref:hover { border-bottom-color: var(--accent); }
+
+    /* ================= FIGURAS, DIAGRAMAS E COMPARATIVOS ================= */
+    figure.diagram-block {
+      margin: 2rem 0 2.25rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 1rem;
+      border-radius: 2px;
+      max-width: 820px;
+    }
+
+    figure.diagram-block img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: zoom-in;
+    }
+
+    figure.diagram-block.narrow {
+      max-width: 260px;
+      margin: 1.75rem 0;
+    }
+
+    figure.diagram-block.gif-box {
+      max-width: 560px;
+      background: var(--elevated);
+      padding: 0.5rem;
+    }
+
+    figcaption {
+      margin-top: 0.65rem;
+      font-size: 0.78rem;
+      color: #444;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+
+    .test-stack {
+      margin: 2.25rem 0 2.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .pair-card {
+      background: var(--elevated);
+      border: 1px solid var(--border);
+      padding: 1rem;
+    }
+
+    .pair-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .pair-grid {
+      display: grid;
+      grid-template-columns: 1.38fr 1fr;
+      gap: 0.85rem;
+      align-items: center;
+    }
+
+    .pair-grid.single-col {
+      grid-template-columns: 1fr;
+      max-width: 620px;
+    }
+
+    .pair-grid img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      cursor: zoom-in;
+      transition: opacity 0.2s ease;
+    }
+
+    .pair-grid img:hover { opacity: 0.92; }
+
+    .quad-grid {
+      margin: 2.25rem 0 2.75rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.15rem;
+    }
+
+    .quad-item {
+      background: var(--elevated);
+      border: 1px solid var(--border);
+      padding: 0.85rem;
+    }
+
+    .quad-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: zoom-in;
+    }
+
+    .lmt-scene-group {
+      margin: 2.5rem 0 3.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.35rem;
+    }
+
+    .lmt-card {
+      background: var(--elevated);
+      border: 1px solid var(--border);
+      padding: 1rem;
+      max-width: 820px;
+    }
+
+    .lmt-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: zoom-in;
+    }
+
+    /* ================= FOOTER DE ARTIGO + COMPARTILHAR ================= */
+    .article-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.25rem;
+      max-width: 820px;
+    }
+
+    .article-footer-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .share-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .share-pill {
+      background: var(--elevated);
+      border: 1px solid var(--border);
+      color: var(--secondary);
+      text-decoration: none;
+      font-family: inherit;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.85rem;
+      cursor: pointer;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .share-pill:hover {
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+
+    @media (max-width: 760px) {
+      article.essay { padding: 2.75rem 1.25rem 5rem; }
+      .pair-grid, .quad-grid { grid-template-columns: 1fr; }
+      .nav-inner { padding: 1.1rem 1.25rem; }
+    }
+
+    /* ================= LIGHTBOX DE INSPEÇÃO ================= */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(3, 3, 4, 0.96);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 2rem;
+      cursor: zoom-out;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox img {
+      max-width: 95vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border: 1px solid var(--border-strong);
+      background: #000;
+    }
+
+    .lightbox-bar {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--secondary);
+    }
+
+    .lightbox-close {
+      background: none;
+      border: 1px solid var(--border-strong);
+      color: var(--text);
+      padding: 0.35rem 0.85rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+</style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <a href="/#escritos" class="back-link">← On Cinematography</a>
+      <div class="header-actions">
+        <button class="share-btn" onclick="shareArticle(this)" aria-label="Share article">
+          <span>Share</span>
+        </button>
+        <div class="lang-switch" aria-label="Language">
+          <a href="../" class="lang-opt" hreflang="pt-BR">PT</a>
+          <span>/</span>
+          <a href="./" class="lang-opt active">ENG</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <article class="essay">
+    <span class="essay-meta">Technical Essay • Color Science &amp; Look Creation</span>
+    <h1>ACES 2.0: A Gateway to Look Creation Beyond Traditional LUTs</h1>
+    <div class="author-bar">
+      <span>João Castelo Branco, ABC</span>
+      <a href="../" class="inline-ref" hreflang="pt-BR">Ler em Português →</a>
+    </div>
+
+    <p>The initial idea for this article was quite simple: to test the new ACES 2.0 (The Academy Color Encoding System). At the same time, I was doing some work for Canon, testing and producing content for their latest cinema camera, the Canon EOS C400. So I decided to test the new ACES using images from this new camera. However, while doing so, I came across more important questions than those merely technical aspects of a color encoding system update. What emerged was a clear possibility of crafting characteristics I envision for my projects in a way that is both more experimental and more consistent, with more predictable results.</p>
+
+    <p>For several years, I have been working with earlier versions of ACES. This update promises to correct some issues with color rendering and should consolidate and popularize these workflows across a broader range of applications. Up to version 1.3, there was an issue for me with the direct image output from ACES: the default transform looked too contrasty and skin tones were less pleasing than other color space transforms methods. So, when workflows required me to use ACES — due to multi-camera setups, CGI elements, or various VFX processes — it always demanded me an extra research to achieve a result that I could otherwise reach faster using DaVinci Resolve's native color space transforms or even the manufacturer LUTs. Although I enjoy the look development process, it didn't always achieve uniform results like those obtained from testing lenses or filters, which consistently impart specific characteristics to the image.</p>
+
+    <p>Choosing a color management method, far from being a homogeneous or automatic process, affects the final image in different ways. On the path from visualizing an idea to the final image, we can run tests with the colorist, create one or more show LUTs (based on pre-researched creative intent); in productions with a DIT, we can test signal manipulations on set, and later all the work through the DI. In analog workflows, we test different negatives and photochemical processes, and once the pipeline is defined (and trusting the lab's accuracy), the final image is relatively secure — much like lens selection. In digital workflows, the "looks" created during pre-production have always seemed limited and dependent on many later adjustments. Ultimately, the safest route ends up being the manufacturer's color science, which at least ensures consistency across most photographic scenarios.</p>
+
+    <p>At first glance, following this logic, it would seem that the closest digital process to the analog workflow is camera choice (with its inherent color science). However, studying digital processes shows us that camera choice does not dictate image characteristics. On the contrary, with competent color management, differences between cameras relate more to practical concerns, such as ergonomics, dynamic range, exposure latitude, than to final image aesthetics. It's quite rare today for anyone to identify which camera was used on a final graded project.</p>
+
+    <p>I appreciate the research processes on image construction, such as Steven Yedlin's. In his widely referenced essay “<a class="inline-ref" href="https://www.yedlin.net/OnColorScience" target="_blank" rel="noopener">On Color Science for Filmmakers</a>”, he poses a central question:</p>
+
+    <blockquote>
+      "Can we as filmmakers identify, isolate and understand any of these underlying attributes so that we can manipulate them meaningfully for ourselves, or are we forever relegated to the status of shoppers; browsing for pre-packaged solutions and then wearing the badge of brand allegiance to the one we select.?"
+      <span class="cite-src">Yedlin, 2017 — https://www.yedlin.net/OnColorScience</span>
+    </blockquote>
+
+    <p>He answers this himself:</p>
+
+    <blockquote>
+      "[...] the substantial part of the perceptual look comes from the mathematical preparation of the image for display and not from the camera format.<br />
+      This means that if we can identify the attributes that matter to us, we can control and sculpt them precisely and individually... regardless of camera type."
+      <span class="cite-src">Yedlin, 2017 — https://www.yedlin.net/OnColorScience</span>
+    </blockquote>
+
+    <p>His article goes on to compare attributes similar to those found in photochemical film, which interests me more for its methodological approach, where he finds ways to manipulate image attributes consistently and reliably on set — beyond Arri, RED, or Canon's default color science. When I see his tests producing radically different results from different technical transforms of the same scanned frame, I recognize a familiar digital experience: each color space transform - from camera intermediate space ("log”) to display - results in significantly different outcomes.</p>
+
+    <p>With ACES, beyond the flexibility to work with different equipment and processes, I am drawn to the technical possibility of working in a photometric scene-referred space. Its mathematical base operates in a linear logic (like how sensors interpret light). One problem with LUTs is that they operate as a 3D matrix in intermediate color spaces, replacing RGB values from point to point. Therefore, depending on lighting and color saturation, a show LUT developed in a specific situation may fail to reflect the intended creative look in others. Moreover, LUTs don't account for the necessary adaptations across different display technologies, in an era where many display gamuts and luminance curves coexist.</p>
+
+    <p>Despite these issues, until version 1.3, ACES still had shortcomings, as noted. This brings me back to what excited me about ACES 2.0: the upgraded "rendering transform," which now provides a better default starting point with lower contrast and more convincing skin tones, even without any manipulation.</p>
+
+    <p>For those unfamiliar with ACES, it helps to briefly outline the transformation chain from scene light to final display image in both traditional and ACES-based workflows.</p>
+
+    <h2>Non-ACES pipeline:</h2>
+
+    <figure class="diagram-block">
+      <img src="../images-en/image29.png" alt="Non-ACES pipeline diagram" onclick="openZoom(this.src, 'Non-ACES pipeline')" />
+    </figure>
+
+    <ul>
+      <li>OETF (Opto-Electronic Transfer Function): Converts linear scene light into an intermediate camera space (e.g., Canon Cinema Gamut / Canon Log 2).</li>
+      <li>EOTF (Electro-Optical Transfer Function): Converts this intermediate signal to display-referred light values, often using a LUT.</li>
+      <li>OOTF (Opto-Optical Transfer Function): Bridges the perceptual differences between scene and a given display.</li>
+    </ul>
+
+    <p>There are some issues in this workflow:</p>
+
+    <ul>
+      <li>Lacks interoperability with different cameras and VFX, CGI, virtual production or any other processes.</li>
+      <li>Tends to apply manipulations after display transform, reducing adaptability to other display technology.</li>
+      <li>When it applies LUTs to perform as EOTF + OOTF, it handles contrast and color in a too simple mathematical terms, limiting control.</li>
+    </ul>
+
+    <h2>ACES pipeline</h2>
+
+    <p>In a very simplified way we would have:</p>
+
+    <figure class="diagram-block">
+      <img src="../images-en/image37.png" alt="Simplified ACES pipeline diagram" onclick="openZoom(this.src, 'ACES pipeline')" />
+    </figure>
+
+    <ul>
+      <li>Instead of the simple OETF (Opto-Electronic Transfer Function) — which converts linear scene values into a camera’s intermediate log encoding — the ACES workflow introduces an Input Transform. This transform maps the camera’s log signal into ACES, a linear, scene-referred color space defined by extremely broad primaries known as AP0.</li>
+      <li>In this wide-gamut space, different components of the audiovisual pipeline can interoperate and exchange image data while preserving the original photometric intent.</li>
+      <li>At the end of the ACES pipeline, rather than a sequential combination of OOTF (Opto-Optical Transfer Function) and EOTF (Electro-Optical Transfer Function), ACES uses a Rendering Transform followed by Display Encoding. Together, these form the Output Transform, which adapts the scene-referred signal to a perceptual model of light and encodes it into the target display’s color space. The Rendering Transform is among the most significant components in the pipeline. Unlike the simpler OETF, OOTF, or EOTF, it involves complex tone mapping operations that account for both the luminance and chromatic volume of the original scene, adjusting them to the output display at the final stage of processing.</li>
+    </ul>
+
+    <p>However, this wide color space—technically designated as SMPTE ST 2065-1, also referred to as ACES 2065-1 or simply "ACES space"—encompasses a gamut larger than the visible spectrum. While it provides a high-fidelity reference for image processing, its vast scale can hinder practical color manipulation in common software tools and complicate interchange with simpler pipelines.</p>
+
+    <p>To address this, ACES defines a secondary working space called AP1, which is similar in size to Rec.2020. Alongside it, a working tone curve called ACEScct (comparable to a log curve) enables more intuitive image manipulation in a software like DaVinci Resolve. In VFX and CGI workflows, a variant known as ACEScg is used—based on AP1 but preserving linear luminance math.</p>
+
+    <figure class="diagram-block">
+      <img src="../images-en/image24.png" alt="ACES working spaces chromaticity diagram" onclick="openZoom(this.src, 'ACES Working Spaces — AP0 & AP1')" />
+      <figcaption>Source: https://acescentral.com/knowledge-base-2/aces-working-spaces</figcaption>
+    </figure>
+
+    <p>This leads us to a complete ACES workflow structure as follows:</p>
+
+    <figure class="diagram-block">
+      <img src="../images-en/image4.png" alt="Complete ACES workflow structure with Look Transform" onclick="openZoom(this.src, 'Complete ACES workflow structure')" />
+    </figure>
+
+    <p>Note that there is a possibility to create a modification called "Look Transform" that operates mathematically in AP0/linear, ensuring its validity when applied back to other situations due its scene-referred logic.</p>
+
+    <h2>Canon EOS C400 Tests</h2>
+
+    <p>I began by testing a scene with significant low light elements, because it seemed to me initially that ACES 2.0 had less noise in dark areas. I compared ACES 1.3, ACES 2.0, DaVinci CST, and Canon's own LUT.</p>
+
+    <div class="test-stack">
+      <div class="pair-card">
+        <span class="pair-label">ACES 1.3</span>
+        <div class="pair-grid">
+          <img src="../images-en/image15.jpg" alt="Test 1 - ACES 1.3 Frame" onclick="openZoom(this.src, 'Test 1 — ACES 1.3 (Frame)')" />
+          <img src="../images-en/image36.png" alt="Test 1 - ACES 1.3 Waveform" onclick="openZoom(this.src, 'Test 1 — ACES 1.3 (Waveform)')" />
+        </div>
+      </div>
+
+      <div class="pair-card">
+        <span class="pair-label">ACES 2.0</span>
+        <div class="pair-grid">
+          <img src="../images-en/image3.jpg" alt="Test 1 - ACES 2.0 Frame" onclick="openZoom(this.src, 'Test 1 — ACES 2.0 (Frame)')" />
+          <img src="../images-en/image40.png" alt="Test 1 - ACES 2.0 Waveform" onclick="openZoom(this.src, 'Test 1 — ACES 2.0 (Waveform)')" />
+        </div>
+      </div>
+
+      <div class="pair-card">
+        <span class="pair-label">CST</span>
+        <div class="pair-grid">
+          <img src="../images-en/image34.jpg" alt="Test 1 - CST Frame" onclick="openZoom(this.src, 'Test 1 — DaVinci CST (Frame)')" />
+          <img src="../images-en/image27.png" alt="Test 1 - CST Waveform" onclick="openZoom(this.src, 'Test 1 — DaVinci CST (Waveform)')" />
+        </div>
+      </div>
+
+      <div class="pair-card">
+        <span class="pair-label">LUT CANON Log 2 to Rec709/1886</span>
+        <div class="pair-grid">
+          <img src="../images-en/image2.jpg" alt="Test 1 - Canon LUT Frame" onclick="openZoom(this.src, 'Test 1 — Canon LUT Log 2 to Rec709/1886 (Frame)')" />
+          <img src="../images-en/image10.png" alt="Test 1 - Canon LUT Waveform" onclick="openZoom(this.src, 'Test 1 — Canon LUT Log 2 to Rec709/1886 (Waveform)')" />
+        </div>
+      </div>
+    </div>
+
+    <p>In this first test, shadows were similarly handled in ACES 2.0, CST, and Canon LUT. Highlights varied: the brightest part of a wall hit 86% IRE in ACES 1.3, 80% in CST/LUT, and 77% in ACES 2.0—the least contrasty.</p>
+
+    <p>In a second test, with more saturated warm tones and a slightly underexposed 18% gray reference:</p>
+
+    <div class="test-stack">
+      <div class="pair-card">
+        <span class="pair-label">ACES 1.3</span>
+        <div class="pair-grid single-col">
+          <img src="../images-en/image6.jpg" alt="Test 2 - ACES 1.3" onclick="openZoom(this.src, 'Test 2 — ACES 1.3')" />
+        </div>
+      </div>
+
+      <div class="pair-card">
+        <span class="pair-label">ACES 2.0</span>
+        <div class="pair-grid">
+          <img src="../images-en/image23.jpg" alt="Test 2 - ACES 2.0 Frame" onclick="openZoom(this.src, 'Test 2 — ACES 2.0 (Frame)')" />
+          <img src="../images-en/image8.png" alt="Test 2 - ACES 2.0 Waveform" onclick="openZoom(this.src, 'Test 2 — ACES 2.0 (Waveform)')" />
+        </div>
+      </div>
+    </div>
+
+    <p>ACES 2.0 lifted shadows slightly (gray card at 21-22% IRE vs. 20-21% in 1.3). The white patch was at 48% in 1.3, 45% in 2.0, increasing separation between shadow and midtones. Buildings lit by early morning sun appeared more saturated in 1.3 and CST.</p>
+
+    <div class="quad-grid">
+      <div class="quad-item">
+        <span class="pair-label">ACES 1.3</span>
+        <img src="../images-en/image6.jpg" alt="Colorchecker Comparison - ACES 1.3" onclick="openZoom(this.src, 'Colorchecker Comparison — ACES 1.3')" />
+      </div>
+      <div class="quad-item">
+        <span class="pair-label">ACES 2.0</span>
+        <img src="../images-en/image23.jpg" alt="Colorchecker Comparison - ACES 2.0" onclick="openZoom(this.src, 'Colorchecker Comparison — ACES 2.0')" />
+      </div>
+      <div class="quad-item">
+        <span class="pair-label">CST</span>
+        <img src="../images-en/image13.jpg" alt="Colorchecker Comparison - CST" onclick="openZoom(this.src, 'Colorchecker Comparison — CST')" />
+      </div>
+      <div class="quad-item">
+        <span class="pair-label">LUT</span>
+        <img src="../images-en/image28.jpg" alt="Colorchecker Comparison - LUT" onclick="openZoom(this.src, 'Colorchecker Comparison — LUT')" />
+      </div>
+    </div>
+
+    <p>Waveform analysis (RGB parade) showed:</p>
+
+    <ul>
+      <li>Canon LUT: most saturated (blue up to 93% IRE).</li>
+      <li>ACES 2.0: least saturated (blue at 87% IRE).</li>
+    </ul>
+
+    <figure class="diagram-block gif-box">
+      <img src="../images-en/image12.gif" alt="Animated GIF comparing transforms" onclick="openZoom(this.src, 'Animated comparison across transforms')" />
+    </figure>
+
+    <p>Subjectively, ACES 2.0 felt more neutral and pleasing without any grade. CST and Canon LUT looked fine in contrast but oversaturated shadows. ACES 1.3 was least convincing, overly contrasty and with poor skin tones.</p>
+
+    <p>In a more extreme example, with deep shadows and saturated blue light (a difficult condition for sensors), I updated a project originally graded in ACES 1.3 to 2.0 with the same correction:</p>
+
+    <div class="test-stack">
+      <div class="pair-card">
+        <span class="pair-label">ACES 1.3</span>
+        <div class="pair-grid">
+          <img src="../images-en/image7.jpg" alt="Skin & Sky - ACES 1.3" onclick="openZoom(this.src, 'Skin & Sky — ACES 1.3')" />
+          <img src="../images-en/image26.png" alt="Skin & Sky - ACES 1.3 RGB Parade" onclick="openZoom(this.src, 'Skin & Sky — ACES 1.3 (RGB Parade)')" />
+        </div>
+      </div>
+
+      <div class="pair-card">
+        <span class="pair-label">ACES 2.0</span>
+        <div class="pair-grid">
+          <img src="../images-en/image35.jpg" alt="Skin & Sky - ACES 2.0" onclick="openZoom(this.src, 'Skin & Sky — ACES 2.0')" />
+          <img src="../images-en/image33.png" alt="Skin & Sky - ACES 2.0 RGB Parade" onclick="openZoom(this.src, 'Skin & Sky — ACES 2.0 (RGB Parade)')" />
+        </div>
+      </div>
+
+      <div class="pair-card">
+        <span class="pair-label">CST</span>
+        <div class="pair-grid">
+          <img src="../images-en/image19.jpg" alt="Skin & Sky - CST" onclick="openZoom(this.src, 'Skin & Sky — CST')" />
+          <img src="../images-en/image18.png" alt="Skin & Sky - CST RGB Parade" onclick="openZoom(this.src, 'Skin & Sky — CST (RGB Parade)')" />
+        </div>
+      </div>
+
+      <div class="pair-card">
+        <span class="pair-label">LUT</span>
+        <div class="pair-grid">
+          <img src="../images-en/image22.jpg" alt="Skin & Sky - LUT" onclick="openZoom(this.src, 'Skin & Sky — LUT')" />
+          <img src="../images-en/image30.png" alt="Skin & Sky - LUT RGB Parade" onclick="openZoom(this.src, 'Skin & Sky — LUT (RGB Parade)')" />
+        </div>
+      </div>
+    </div>
+
+    <p>Here, I opted for an RGB parade waveform to clearly visualize the saturation differences across each color channel. Notice that the wall in the lower-left corner sits at a neutral tone right around 50% IRE. Visually, we can already see the difference in saturation in the skin tones and the blue of the sky (just moments before sunrise). On the waveform, the Canon LUT shows the widest separation between color channels, indicating higher color saturation. In both the LUT and ACES 1.3, the blue channel peaks at 93% IRE, compared to 89% IRE in the CST and 87% IRE in ACES 2.0.</p>
+
+    <p>Quite subjectively, with no manipulation applied, ACES 2.0 strikes me as a more neutral and pleasing alternative. The DaVinci Resolve CST and the LUT show good contrast levels, but with exaggerated colors, particularly in the shadows. ACES 1.3, on the other hand, delivers the weakest response, resulting in an overly contrasty image and unconvincing skin tones.</p>
+
+    <p>I chose a radical example here, where most of the critical image information sits in very dark zones alongside saturated blue light sources (at the edge of the gamut)—which is, as a rule, the most challenging scenario for photographic sensors. In this case, the film had already been graded using an ACES 1.3-based pipeline, and the goal was to update it to ACES 2.0 while preserving the original creative intent.</p>
+
+    <div class="test-stack">
+      <div class="pair-card">
+        <span class="pair-label">ACES 2.0</span>
+        <div class="pair-grid">
+          <img src="../images-en/image16.jpg" alt="Extreme scene - ACES 2.0" onclick="openZoom(this.src, 'Extreme scene — ACES 2.0')" />
+          <img src="../images-en/image11.png" alt="Extreme scene - ACES 2.0 Waveform" onclick="openZoom(this.src, 'Extreme scene — ACES 2.0 (Waveform)')" />
+        </div>
+      </div>
+
+      <div class="pair-card">
+        <span class="pair-label">ACES 1.3 — same color processing</span>
+        <div class="pair-grid">
+          <img src="../images-en/image39.jpg" alt="Extreme scene - ACES 1.3 same grade" onclick="openZoom(this.src, 'Extreme scene — ACES 1.3 (same color processing)')" />
+          <img src="../images-en/image20.png" alt="Extreme scene - ACES 1.3 Waveform" onclick="openZoom(this.src, 'Extreme scene — ACES 1.3 (Waveform)')" />
+        </div>
+      </div>
+    </div>
+
+    <p>In both images, you can see that although most of the image information sits in very dark zones, the ACES 2.0 transform keeps that data lifted off the 0% IRE floor, whereas in the ACES 1.3 version, a significant amount of information is buried. This is expected, since ACES 1.3, as we have seen, pushes the shadows further down and the highlights further up. However, when trying to fix the issue, I notice that a portion of that information (likely carrying substantial noise) refuses to lift off the baseline of the waveform. While an experienced colorist might find a way to work around this manually, here the solution comes directly from the transform itself.</p>
+
+    <div class="test-stack">
+      <div class="pair-card">
+        <span class="pair-label">ACES 1.3 — attempting to reduce the amount of buried shadow information</span>
+        <div class="pair-grid">
+          <img src="../images-en/image32.jpg" alt="ACES 1.3 attempting to lift shadows" onclick="openZoom(this.src, 'ACES 1.3 — attempting to reduce buried shadow information')" />
+          <img src="../images-en/image38.png" alt="ACES 1.3 attempting to lift shadows Waveform" onclick="openZoom(this.src, 'ACES 1.3 — Waveform when lifting shadows')" />
+        </div>
+      </div>
+    </div>
+
+    <h2>Tests on Creating Creative Transforms for On-Set Use</h2>
+
+    <p>In an effort to develop a creative transform (a look) for a film, cinematographers, colorists, and DITs have been researching ways to manipulate color space transforms to achieve a more uniform response than traditional Show LUTs, which have become widespread in cinematography over the past 15 years. Based on tests with ACES 2.0, I believe I have found a path forward for my own work by combining LMTs with native ACES 2.0 transforms. As a reminder, LMTs operate using scene-referred (linear) math within the ACES AP0 color space, paired with a new "JMH" Rendering Transform calculation that separates adjustments of perceived lightness ("J"), perceived colorfulness ("M"), and perceived hue ("H")—somewhat analogous to HSL logic. This means creative transforms should yield a more accurate response regardless of lighting conditions, color science choices, or exposure, both during the color grading process and on set.</p>
+
+    <p>Among the tools that interest me in color grading are those that shift color saturation behavior from additive to subtractive logic. A true subtractive color system is effectively impossible on displays, since white on screens is formed additively (by adding the primary colors together). However, certain tools simulate how color saturation behaves in the realm of pigments (rather than light) as well as in photographic film stock—given that to produce positive colors, film uses CMY dyes to compose the image. Thus, a saturated blue is a mixture of cyan and magenta dyes, whereas in an RGB (additive) system, we increase the luminance values of the blue channel while leaving the others unchanged. The beauty of increasing color saturation under subtractive logic is that instead of boosting the luminance of a single RGB channel (blue, in this example), it lowers the luminance of the opposing channels (simulating the addition of pigment).</p>
+
+    <p>DaVinci Resolve features a very interesting tool called Film Look Creator. Beyond attempting to emulate specific film stocks (which, as a rule, does not particularly interest me), it allows us to emulate color saturation increases using subtractive logic. This tool can be constrained so that its values translate cleanly into a 3D LUT, and best of all, it can operate in a scene-referred pipeline, follow the timeline color space, or work in linear space. The test here consisted of configuring the tool to operate in linear AP0 space and evaluating how the resulting <code>.clf</code> LUT would behave across varying luminance and chrominance conditions. These choices would not be very effective in a traditional Show LUT—even if built in an intermediate ("log") color space, and far less so in display-referred space.</p>
+
+    <p>Let's look at these examples: first, the frame with only the transform from Canon Log 2 to Rec. 709 processed through ACES 2.0; next, with the LMT (<code>.clf</code>) created from the subtractive saturation boost via the Film Look Creator tool; and finally, a second look with an even more aggressive intervention using the same tool, intended to emulate a generic film stock effect:</p>
+
+    <div class="lmt-scene-group">
+      <div class="lmt-card">
+        <span class="pair-label">Transform. ACES 2.0</span>
+        <img src="../images-en/image5.jpg" alt="Scene 1 - Transform. ACES 2.0" onclick="openZoom(this.src, 'Scene 1 — Transform. ACES 2.0')" />
+      </div>
+      <div class="lmt-card">
+        <span class="pair-label">ACES with LMT look I</span>
+        <img src="../images-en/image14.jpg" alt="Scene 1 - ACES with LMT look I" onclick="openZoom(this.src, 'Scene 1 — ACES with LMT look I')" />
+      </div>
+      <div class="lmt-card">
+        <span class="pair-label">ACES with LMT look II</span>
+        <img src="../images-en/image41.jpg" alt="Scene 1 - ACES with LMT look II" onclick="openZoom(this.src, 'Scene 1 — ACES with LMT look II')" />
+      </div>
+    </div>
+
+    <div class="lmt-scene-group">
+      <div class="lmt-card">
+        <span class="pair-label">Transform. ACES 2.0</span>
+        <img src="../images-en/image9.jpg" alt="Scene 2 - Transform. ACES 2.0" onclick="openZoom(this.src, 'Scene 2 — Transform. ACES 2.0')" />
+      </div>
+      <div class="lmt-card">
+        <span class="pair-label">ACES with LMT look I</span>
+        <img src="../images-en/image31.jpg" alt="Scene 2 - ACES with LMT look I" onclick="openZoom(this.src, 'Scene 2 — ACES with LMT look I')" />
+      </div>
+      <div class="lmt-card">
+        <span class="pair-label">ACES with LMT look II</span>
+        <img src="../images-en/image21.jpg" alt="Scene 2 - ACES with LMT look II" onclick="openZoom(this.src, 'Scene 2 — ACES with LMT look II')" />
+      </div>
+    </div>
+
+    <div class="lmt-scene-group">
+      <div class="lmt-card">
+        <span class="pair-label">Transform. ACES 2.0</span>
+        <img src="../images-en/image1.jpg" alt="Scene 3 - Transform. ACES 2.0" onclick="openZoom(this.src, 'Scene 3 — Transform. ACES 2.0')" />
+      </div>
+      <div class="lmt-card">
+        <span class="pair-label">ACES with LMT look I</span>
+        <img src="../images-en/image25.jpg" alt="Scene 3 - ACES with LMT look I" onclick="openZoom(this.src, 'Scene 3 — ACES with LMT look I')" />
+      </div>
+      <div class="lmt-card">
+        <span class="pair-label">ACES with LMT look II</span>
+        <img src="../images-en/image17.jpg" alt="Scene 3 - ACES with LMT look II" onclick="openZoom(this.src, 'Scene 3 — ACES with LMT look II')" />
+      </div>
+    </div>
+
+    <p>Regardless of whether the aesthetic result is good or bad, the effects behaved uniformly across vastly different lighting and contrast scenarios. What excites me about this possibility is that it unlocks a type of visual intervention during principal photography that was previously impossible on set, tools that simultaneously operate in scene-referred photometric logic and offer far greater complexity than standard lift, gamma, and gain adjustments. I look forward to the day camera manufacturers adopt native ACES workflows in-camera and allow direct LMT loading. For now, this on-set capability remains restricted to productions with a DIT who can implement a full ACES pipeline.</p>
+
+    <div class="article-footer">
+      <div class="article-footer-meta">João Castelo Branco, ABC • <a href="../" class="inline-ref" hreflang="pt-BR">Versão em Português</a></div>
+      <div class="share-group">
+        <button class="share-pill" onclick="copyShareUrl(this)">Copy link</button>
+        <a class="share-pill" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fjoao-castelo-branco.com%2Fsobre-a-cinematografia%2Faces-2-0%2Fen%2F" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="share-pill" href="https://api.whatsapp.com/send?text=ACES%202.0%3A%20A%20Gateway%20to%20Look%20Creation%20Beyond%20Traditional%20LUTs%20%E2%80%94%20https%3A%2F%2Fjoao-castelo-branco.com%2Fsobre-a-cinematografia%2Faces-2-0%2Fen%2F" target="_blank" rel="noopener">WhatsApp ↗</a>
+      </div>
+    </div>
+  </article>
+
+  <div id="zoom-lightbox" class="lightbox" onclick="closeZoom()">
+    <img id="zoom-img" src="" alt="" />
+    <div class="lightbox-bar" onclick="event.stopPropagation()">
+      <span id="zoom-caption"></span>
+      <button class="lightbox-close" onclick="closeZoom()">Close [ESC]</button>
+    </div>
+  </div>
+
+  <script>
+    const CANONICAL_URL = "https://joao-castelo-branco.com/sobre-a-cinematografia/aces-2-0/en/";
+    const ARTICLE_TITLE = "ACES 2.0: A Gateway to Look Creation Beyond Traditional LUTs — João Castelo Branco, ABC";
+
+    function copyShareUrl(btn) {
+      navigator.clipboard.writeText(CANONICAL_URL).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = "Copied ✓";
+        setTimeout(() => { btn.textContent = orig; }, 2200);
+      });
+    }
+
+    function shareArticle(btn) {
+      if (navigator.share) {
+        navigator.share({ title: ARTICLE_TITLE, url: CANONICAL_URL }).catch(() => {});
+      } else {
+        const span = btn.querySelector("span");
+        navigator.clipboard.writeText(CANONICAL_URL).then(() => {
+          const orig = span.textContent;
+          span.textContent = "Copied ✓";
+          setTimeout(() => { span.textContent = orig; }, 2200);
+        });
+      }
+    }
+
+    function openZoom(src, caption) {
+      document.getElementById('zoom-img').src = src;
+      document.getElementById('zoom-caption').textContent = caption;
+      document.getElementById('zoom-lightbox').classList.add('open');
+    }
+
+    function closeZoom() {
+      document.getElementById('zoom-lightbox').classList.remove('open');
+      document.getElementById('zoom-img').src = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeZoom();
+    });
+  </script>
+</body>
+</html>
