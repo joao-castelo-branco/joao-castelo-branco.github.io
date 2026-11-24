@@ -553,7 +553,7 @@
   <!-- HOME: TELA CHEIA COM LETTERBOX/PILLARBOX PRESERVANDO PROPORÇÃO ORIGINAL -->
   <section id="view-home" class="view-section active">
     <div id="home-stage" class="home-stage" onclick="openShowreel()">
-      <img id="home-frame" class="home-frame-img" src="assets/circo-orion.webp" alt="Frame" />
+      <img id="home-frame" class="home-frame-img" src="assets/circo-orion.jpg" alt="Frame" />
       <button class="carousel-arrow arrow-prev" aria-label="Anterior" onclick="prevFrame(event)">&#8249;</button>
       <button class="carousel-arrow arrow-next" aria-label="Próximo" onclick="nextFrame(event)">&#8250;</button>
     </div>
@@ -700,38 +700,38 @@
       <div class="consultancy-header">
         <h1 data-i18n="consTitle">Consultoria e P&amp;D em cinematografia digital</h1>
         <p data-i18n="consIntro">
-          Atuação técnica junto a fabricantes de câmeras, desenvolvedores de ferramentas de imagem e canais de exibição, fundamentada na experiência prática em produções de cinema e séries e na pesquisa contínua sobre sensores, colorimetria e fluxos de trabalho digitais.
+          Atuação junto a fabricantes e desenvolvedores de ferramentas para a indústria audiovisual, fundamentada na experiência prática em produções de cinema e séries e na pesquisa contínua sobre sensores, ciência de cor e fluxos de trabalho digitais.
         </p>
       </div>
 
       <div class="consultancy-grid">
         <div class="cons-cell">
-          <span class="cons-num">01 / FABRICANTES</span>
+          <span class="cons-num" data-i18n="consNum1">01 / FABRICANTES</span>
           <h2 data-i18n="consCanonTitle">Canon do Brasil</h2>
           <p data-i18n="consCanonDesc">
-            Consultoria técnica para a Canon do Brasil na avaliação de sistemas de câmera de cinema digital, testes de campo, análise de ciência de cor e interlocução entre as demandas reais de produção e o desenvolvimento de produto.
+            Atuação como consultor e palestrante para a Canon do Brasil na avaliação de sistemas de câmera, ótica e monitoração da linha de cinema digital — EOS Cinema —, com testes laboratoriais e de campo, análise de ciência de cor e interlocução entre as demandas reais de produção e o desenvolvimento de produto.
           </p>
         </div>
 
         <div class="cons-cell">
-          <span class="cons-num">02 / PROTOCOLO</span>
+          <span class="cons-num" data-i18n="consNum2">02 / PROTOCOLO</span>
           <h2 data-i18n="consMethodTitle">Metodologia de Teste de Câmera</h2>
           <p data-i18n="consMethodDesc">
-            Protocolo de avaliação desenvolvido ao longo de anos de pesquisa aplicada para investigar o comportamento real de sensores digitais — latitude, resposta em altas luzes, piso de ruído e consistência cromática.
+            Protocolo de avaliação desenvolvido ao longo de anos de pesquisa aplicada para investigar o comportamento de sensores de câmeras de cinema digital, medindo intervalo dinâmico, latitude, resposta em altas luzes, piso de ruído e resposta cromática.
           </p>
         </div>
 
         <div class="cons-cell">
-          <span class="cons-num">03 / SENSOR &amp; DYNAMIC RANGE</span>
+          <span class="cons-num" data-i18n="consNum3">03 / SENSOR &amp; DYNAMIC RANGE</span>
           <h2>Extrema DR</h2>
           <p data-i18n="consExtremaDesc">
-            Aplicativo desenvolvido para avaliar de forma objetiva o Dynamic Range (faixa dinâmica) de câmeras e sensores digitais.
+            Aplicativo desenvolvido para avaliar de forma objetiva o dynamic range (intervalo dinâmico) de câmeras e sensores digitais.
           </p>
           <a href="/extrema-dr/" class="subtle-link" data-i18n="consExtremaLink">Página do projeto e repositório GitHub →</a>
         </div>
 
         <div class="cons-cell">
-          <span class="cons-num">04 / ON-SET DIT &amp; LOOK</span>
+          <span class="cons-num" data-i18n="consNum4">04 / ON-SET DIT &amp; LOOK</span>
           <h2>Matiz</h2>
           <p data-i18n="consMatizDesc">
             Aplicativo de criação de look e ferramentas simplificadas para DIT (Digital Imaging Technician) no set.
@@ -760,7 +760,7 @@
         </div>
 
         <div class="contact-row">
-          <span class="contact-label" data-i18n="contactTechLabel">Consultoria e P&amp;D em Cinematografia Digital</span>
+          <span class="contact-label" data-i18n="contactTechLabel">Consultoria e P&amp;D em cinematografia digital</span>
           <a href="mailto:consultoria@joao-castelo-branco.com" class="contact-value">consultoria@joao-castelo-branco.com</a>
         </div>
 
@@ -787,17 +787,17 @@
   <script>
     const SHOWREEL_EMBED_URL = "https://customer-d6pz4snjqkcud0bx.cloudflarestream.com/1551c6a30109824628cb0a9d0796e030/iframe?autoplay=true&preload=true";
 
-  const frames = [
-      { src: "assets/circo-orion.webp", title: "Circo Orion" },
-      { src: "assets/bixo-do-mato.webp", title: "Bixo do Mato" },
-      { src: "assets/o-touro.webp", title: "O Touro" },
-      { src: "assets/contracapa.webp", title: "Contracapa" },
-      { src: "assets/a-fotografia-na-parede.webp", title: "A fotografia na parede" },
-      { src: "assets/meu-avo-stanislau.webp", title: "Meu Avô Stanislau" },
-      { src: "assets/la-chancha-01.webp", title: "La Chancha" },
-      { src: "assets/parabens-a-voce.webp", title: "Parabéns a você" },
-      { src: "assets/la-chancha-02.webp", title: "La Chancha" },
-      { src: "assets/um-lugar-bem-longe.webp", title: "Um Lugar bem Longe" }
+    const frames = [
+      { src: "assets/circo-orion.jpg", title: "Circo Orion" },
+      { src: "assets/bixo-do-mato.jpg", title: "Bixo do Mato" },
+      { src: "assets/o-touro.jpg", title: "O Touro" },
+      { src: "assets/contracapa.jpg", title: "Contracapa" },
+      { src: "assets/a-fotografia-na-parede.jpg", title: "A fotografia na parede" },
+      { src: "assets/meu-avo-stanislau.jpg", title: "Meu Avô Stanislau" },
+      { src: "assets/la-chancha-01.jpg", title: "La Chancha" },
+      { src: "assets/parabens-a-voce.jpg", title: "Parabéns a você" },
+      { src: "assets/la-chancha-02.jpg", title: "La Chancha" },
+      { src: "assets/um-lugar-bem-longe.jpg", title: "Um Lugar bem Longe" }
     ];
 
     let currentIndex = Math.floor(Math.random() * frames.length);
@@ -965,17 +965,21 @@
         es7Title: "O desenvolvimento e o uso do Matiz: um uso possível da IA na cinematografia",
         es7Summary: "Como ferramentas assistidas podem simplificar a criação de look e a operação de DIT no set sem substituir a autoria fotográfica.",
         consTitle: "Consultoria e P&D em cinematografia digital",
-        consIntro: "Atuação técnica junto a fabricantes de câmeras, desenvolvedores de ferramentas de imagem e canais de exibição, fundamentada na experiência prática em produções de cinema e séries e na pesquisa contínua sobre sensores, colorimetria e fluxos de trabalho digitais.",
+        consIntro: "Atuação junto a fabricantes e desenvolvedores de ferramentas para a indústria audiovisual, fundamentada na experiência prática em produções de cinema e séries e na pesquisa contínua sobre sensores, ciência de cor e fluxos de trabalho digitais.",
+        consNum1: "01 / FABRICANTES",
         consCanonTitle: "Canon do Brasil",
-        consCanonDesc: "Consultoria técnica para a Canon do Brasil na avaliação de sistemas de câmera de cinema digital, testes de campo, análise de ciência de cor e interlocução entre as demandas reais de produção e o desenvolvimento de produto.",
+        consCanonDesc: "Atuação como consultor e palestrante para a Canon do Brasil na avaliação de sistemas de câmera, ótica e monitoração da linha de cinema digital — EOS Cinema —, com testes laboratoriais e de campo, análise de ciência de cor e interlocução entre as demandas reais de produção e o desenvolvimento de produto.",
+        consNum2: "02 / PROTOCOLO",
         consMethodTitle: "Metodologia de Teste de Câmera",
-        consMethodDesc: "Protocolo de avaliação desenvolvido ao longo de anos de pesquisa aplicada para investigar o comportamento real de sensores digitais — latitude, resposta em altas luzes, piso de ruído e consistência cromática.",
-        consExtremaDesc: "Aplicativo desenvolvido para avaliar de forma objetiva o Dynamic Range (faixa dinâmica) de câmeras e sensores digitais.",
+        consMethodDesc: "Protocolo de avaliação desenvolvido ao longo de anos de pesquisa aplicada para investigar o comportamento de sensores de câmeras de cinema digital, medindo intervalo dinâmico, latitude, resposta em altas luzes, piso de ruído e resposta cromática.",
+        consNum3: "03 / SENSOR & DYNAMIC RANGE",
+        consExtremaDesc: "Aplicativo desenvolvido para avaliar de forma objetiva o dynamic range (intervalo dinâmico) de câmeras e sensores digitais.",
         consExtremaLink: "Página do projeto e repositório GitHub →",
+        consNum4: "04 / ON-SET DIT & LOOK",
         consMatizDesc: "Aplicativo de criação de look e ferramentas simplificadas para DIT (Digital Imaging Technician) no set.",
         consMatizLink: "Página do projeto e repositório GitHub →",
         contactCinemaLabel: "Direção de Fotografia — Cinema e Séries",
-        contactTechLabel: "Consultoria e P&D em Cinematografia Digital",
+        contactTechLabel: "Consultoria e P&D em cinematografia digital",
         contactInstLabel: "Referências Institucionais & Código"
       },
       en: {
@@ -998,7 +1002,7 @@
         es2Summary: "Reflections on the initial stages of crafting cinematic imagery through close script reading and creative dialogue with the director.",
         readAbc: "Read at ABC ↗",
         es3Meta: "Video • Podcast Miniseries",
-        es3Title: "O cinema é feito de gente (Cinema is Made of People)",
+        es3Title: "Cinema is Made of People (O cinema é feito de gente)",
         es3Summary: "A series of conversations on film crafts, set collaboration, and the human relationships behind filmmaking.",
         watchPlaylist: "Watch playlist on YouTube ↗",
         es4Meta: "Video • Canon Cast — SET Expo",
@@ -1007,7 +1011,7 @@
         watchVideo: "Watch video ▶",
         es5Meta: "Video • Canon Cast EP84 — Canon College",
         es5Title: "Special: Brazilian Cinema Day",
-        es5Summary: "Conversation on cinematography career, contemporary Brazilian cinema, and the dialogue between aesthetics and digital technology.",
+        es5Summary: "A conversation on cinematography, contemporary Brazilian cinema, and the dialogue between aesthetics and digital technology.",
         es6Meta: "Text • Methodology & Sensor",
         es6Title: "Camera Testing Methodology and Objective Dynamic Range Evaluation with Extrema DR",
         es6Summary: "A breakdown of latitude, noise floor, and highlight roll-off measurement criteria applied in developing the Extrema DR application.",
@@ -1016,17 +1020,21 @@
         es7Title: "Developing and Using Matiz: A Possible Use of AI in Cinematography",
         es7Summary: "How assisted tools can streamline look creation and on-set DIT workflows without replacing photographic authorship.",
         consTitle: "Consulting & R&D in digital cinematography",
-        consIntro: "Technical advisory for camera manufacturers, imaging tool developers, and exhibition platforms, grounded in hands-on experience in feature films and series and ongoing research into sensors, colorimetry, and digital workflows.",
+        consIntro: "Working alongside camera manufacturers, imaging tool developers, and exhibition platforms to bridge the gap between on-set cinematography and technical development—grounding sensor research, color science, and digital workflows in the practical realities of narrative filmmaking.",
+        consNum1: "01 / MANUFACTURERS",
         consCanonTitle: "Canon Brazil",
-        consCanonDesc: "Technical consulting for Canon Brazil on digital cinema camera evaluation, field testing, color science analysis, and bridging real-world production demands with product development.",
+        consCanonDesc: "Consultant and speaker for Canon Brazil evaluating digital cinema cameras, optics, and monitoring systems—EOS Cinema—combining lab and field testing with color science analysis to translate real-world set demands into product insight.",
+        consNum2: "02 / PROTOCOL",
         consMethodTitle: "Camera Testing Methodology",
-        consMethodDesc: "Testing protocol developed over years of applied research to investigate the real-world behavior of digital sensors — latitude, highlight roll-off, noise floor, and color consistency.",
-        consExtremaDesc: "Application developed to objectively evaluate the Dynamic Range of digital cameras and sensors.",
+        consMethodDesc: "A testing protocol refined over years of applied research to evaluate how digital cinema sensors perform in practice—measuring dynamic range, latitude, highlight roll-off, noise floor, and color response from a cinematographer’s perspective.",
+        consNum3: "03 / SENSOR & DYNAMIC RANGE",
+        consExtremaDesc: "An application built to objectively measure and verify the dynamic range of digital cameras and sensors.",
         consExtremaLink: "Project page and GitHub repository →",
-        consMatizDesc: "Application for look creation and simplified tools for on-set DIT (Digital Imaging Technician).",
+        consNum4: "04 / ON-SET DIT & LOOK",
+        consMatizDesc: "A look-creation application and streamlined toolkit designed for on-set DIT (Digital Imaging Technician) workflows.",
         consMatizLink: "Project page and GitHub repository →",
         contactCinemaLabel: "Cinematography — Feature Films & Series",
-        contactTechLabel: "Consulting & R&D in Digital Cinematography",
+        contactTechLabel: "Consulting & R&D in digital cinematography",
         contactInstLabel: "Institutional References & Code"
       }
     };
