@@ -508,20 +508,30 @@
 
     .contact-value:hover { color: var(--accent); }
 
+    .contact-links-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 0.4rem;
+    }
+
     footer {
       max-width: 1240px;
       margin: 0 auto;
       padding: 2rem 2.25rem;
       border-top: 1px solid var(--border);
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+      gap: 1rem;
       font-size: 0.76rem;
       color: var(--muted);
     }
 
     .footer-links {
       display: flex;
+      flex-wrap: wrap;
       gap: 1.5rem;
     }
 
@@ -553,7 +563,7 @@
   <!-- HOME: TELA CHEIA COM LETTERBOX/PILLARBOX PRESERVANDO PROPORÇÃO ORIGINAL -->
   <section id="view-home" class="view-section active">
     <div id="home-stage" class="home-stage" onclick="openShowreel()">
-      <img id="home-frame" class="home-frame-img" src="assets/circo-orion.jpg" alt="Frame" />
+      <img id="home-frame" class="home-frame-img" src="assets/circo-orion.webp" alt="Frame" />
       <button class="carousel-arrow arrow-prev" aria-label="Anterior" onclick="prevFrame(event)">&#8249;</button>
       <button class="carousel-arrow arrow-next" aria-label="Próximo" onclick="nextFrame(event)">&#8250;</button>
     </div>
@@ -573,9 +583,10 @@
     <footer>
       <span>João Castelo Branco, ABC</span>
       <div class="footer-links">
-        <a href="https://abcine.org.br" target="_blank" rel="noopener">ABC</a>
-        <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb</a>
-        <a href="https://github.com/joao-castelo-branco" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://abcine.org.br/socios/joao-castelo-branco-abc/" target="_blank" rel="noopener">ABC</a>
+        <a href="https://www.imdb.com/pt/name/nm4900962/" target="_blank" rel="noopener">IMDb</a>
+        <a href="https://www.instagram.com/joao_castelo_branco/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/in/joaocb/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </footer>
   </section>
@@ -603,9 +614,10 @@
     <footer>
       <span>João Castelo Branco, ABC</span>
       <div class="footer-links">
-        <a href="https://abcine.org.br" target="_blank" rel="noopener">ABC</a>
-        <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb</a>
-        <a href="https://github.com/joao-castelo-branco" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://abcine.org.br/socios/joao-castelo-branco-abc/" target="_blank" rel="noopener">ABC</a>
+        <a href="https://www.imdb.com/pt/name/nm4900962/" target="_blank" rel="noopener">IMDb</a>
+        <a href="https://www.instagram.com/joao_castelo_branco/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/in/joaocb/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </footer>
   </section>
@@ -687,9 +699,10 @@
     <footer>
       <span>João Castelo Branco, ABC</span>
       <div class="footer-links">
-        <a href="https://abcine.org.br" target="_blank" rel="noopener">ABC</a>
-        <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb</a>
-        <a href="https://github.com/joao-castelo-branco" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://abcine.org.br/socios/joao-castelo-branco-abc/" target="_blank" rel="noopener">ABC</a>
+        <a href="https://www.imdb.com/pt/name/nm4900962/" target="_blank" rel="noopener">IMDb</a>
+        <a href="https://www.instagram.com/joao_castelo_branco/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/in/joaocb/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </footer>
   </section>
@@ -743,8 +756,9 @@
     <footer>
       <span>João Castelo Branco, ABC</span>
       <div class="footer-links">
-        <a href="https://abcine.org.br" target="_blank" rel="noopener">ABC</a>
-        <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb</a>
+        <a href="https://abcine.org.br/socios/joao-castelo-branco-abc/" target="_blank" rel="noopener">ABC</a>
+        <a href="https://www.imdb.com/pt/name/nm4900962/" target="_blank" rel="noopener">IMDb</a>
+        <a href="https://www.linkedin.com/in/joaocb/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://github.com/joao-castelo-branco" target="_blank" rel="noopener">GitHub</a>
       </div>
     </footer>
@@ -765,11 +779,12 @@
         </div>
 
         <div class="contact-row">
-          <span class="contact-label" data-i18n="contactInstLabel">Referências Institucionais &amp; Código</span>
-          <div style="display: flex; gap: 1.5rem; margin-top: 0.4rem;">
-            <a href="https://abcine.org.br" target="_blank" rel="noopener" class="subtle-link">ABC</a>
-            <a href="https://www.imdb.com" target="_blank" rel="noopener" class="subtle-link">IMDb</a>
-            <a href="https://github.com/joao-castelo-branco" target="_blank" rel="noopener" class="subtle-link">GitHub</a>
+          <span class="contact-label" data-i18n="contactInstLabel">Referências Institucionais &amp; Perfil</span>
+          <div class="contact-links-group">
+            <a href="https://abcine.org.br/socios/joao-castelo-branco-abc/" target="_blank" rel="noopener" class="subtle-link">ABC</a>
+            <a href="https://www.imdb.com/pt/name/nm4900962/" target="_blank" rel="noopener" class="subtle-link">IMDb</a>
+            <a href="https://www.instagram.com/joao_castelo_branco/" target="_blank" rel="noopener" class="subtle-link">Instagram</a>
+            <a href="https://www.linkedin.com/in/joaocb/" target="_blank" rel="noopener" class="subtle-link">LinkedIn</a>
           </div>
         </div>
       </div>
@@ -777,9 +792,10 @@
     <footer>
       <span>João Castelo Branco, ABC</span>
       <div class="footer-links">
-        <a href="https://abcine.org.br" target="_blank" rel="noopener">ABC</a>
-        <a href="https://www.imdb.com" target="_blank" rel="noopener">IMDb</a>
-        <a href="https://github.com/joao-castelo-branco" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://abcine.org.br/socios/joao-castelo-branco-abc/" target="_blank" rel="noopener">ABC</a>
+        <a href="https://www.imdb.com/pt/name/nm4900962/" target="_blank" rel="noopener">IMDb</a>
+        <a href="https://www.instagram.com/joao_castelo_branco/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/in/joaocb/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </footer>
   </section>
@@ -788,16 +804,15 @@
     const SHOWREEL_EMBED_URL = "https://customer-d6pz4snjqkcud0bx.cloudflarestream.com/1551c6a30109824628cb0a9d0796e030/iframe?autoplay=true&preload=true";
 
     const frames = [
-      { src: "assets/circo-orion.jpg", title: "Circo Orion" },
-      { src: "assets/bixo-do-mato.jpg", title: "Bixo do Mato" },
-      { src: "assets/o-touro.jpg", title: "O Touro" },
-      { src: "assets/contracapa.jpg", title: "Contracapa" },
-      { src: "assets/a-fotografia-na-parede.jpg", title: "A fotografia na parede" },
-      { src: "assets/meu-avo-stanislau.jpg", title: "Meu Avô Stanislau" },
-      { src: "assets/la-chancha-01.jpg", title: "La Chancha" },
-      { src: "assets/parabens-a-voce.jpg", title: "Parabéns a você" },
-      { src: "assets/la-chancha-02.jpg", title: "La Chancha" },
-      { src: "assets/um-lugar-bem-longe.jpg", title: "Um Lugar bem Longe" }
+      { src: "assets/circo-orion.webp", title: "Circo Orion" },
+      { src: "assets/bixo-do-mato.webp", title: "Bixo do Mato" },
+      { src: "assets/o-touro.webp", title: "O Touro" },
+      { src: "assets/contracapa.webp", title: "Contracapa" },
+      { src: "assets/a-fotografia-na-parede.webp", title: "A fotografia na parede" },
+      { src: "assets/meu-avo-stanislau.webp", title: "Meu Avô Stanislau" },
+      { src: "assets/la-chancha-01.webp", title: "La Chancha" },
+      { src: "assets/parabens-a-voce.webp", title: "Parabéns a você" },
+      { src: "assets/la-chancha-02.webp", title: "La Chancha" }
     ];
 
     let currentIndex = Math.floor(Math.random() * frames.length);
@@ -980,7 +995,7 @@
         consMatizLink: "Página do projeto e repositório GitHub →",
         contactCinemaLabel: "Direção de Fotografia — Cinema e Séries",
         contactTechLabel: "Consultoria e P&D em cinematografia digital",
-        contactInstLabel: "Referências Institucionais & Código"
+        contactInstLabel: "Referências Institucionais & Perfil"
       },
       en: {
         navFilms: "Films",
@@ -1035,7 +1050,7 @@
         consMatizLink: "Project page and GitHub repository →",
         contactCinemaLabel: "Cinematography — Feature Films & Series",
         contactTechLabel: "Consulting & R&D in digital cinematography",
-        contactInstLabel: "Institutional References & Code"
+        contactInstLabel: "Institutional References & Profile"
       }
     };
 
