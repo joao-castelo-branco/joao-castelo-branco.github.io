@@ -563,7 +563,7 @@
   <!-- HOME: TELA CHEIA COM LETTERBOX/PILLARBOX PRESERVANDO PROPORÇÃO ORIGINAL -->
   <section id="view-home" class="view-section active">
     <div id="home-stage" class="home-stage" onclick="openShowreel()">
-      <img id="home-frame" class="home-frame-img" src="assets/circo-orion.webp" alt="Frame" />
+      <img id="home-frame" class="home-frame-img" src="assets/circo-orion.jpg" alt="Frame" />
       <button class="carousel-arrow arrow-prev" aria-label="Anterior" onclick="prevFrame(event)">&#8249;</button>
       <button class="carousel-arrow arrow-next" aria-label="Próximo" onclick="nextFrame(event)">&#8250;</button>
     </div>
@@ -804,15 +804,16 @@
     const SHOWREEL_EMBED_URL = "https://customer-d6pz4snjqkcud0bx.cloudflarestream.com/1551c6a30109824628cb0a9d0796e030/iframe?autoplay=true&preload=true";
 
     const frames = [
-      { src: "assets/circo-orion.webp", title: "Circo Orion" },
-      { src: "assets/bixo-do-mato.webp", title: "Bixo do Mato" },
-      { src: "assets/o-touro.webp", title: "O Touro" },
-      { src: "assets/contracapa.webp", title: "Contracapa" },
-      { src: "assets/a-fotografia-na-parede.webp", title: "A fotografia na parede" },
-      { src: "assets/meu-avo-stanislau.webp", title: "Meu Avô Stanislau" },
-      { src: "assets/la-chancha-01.webp", title: "La Chancha" },
-      { src: "assets/parabens-a-voce.webp", title: "Parabéns a você" },
-      { src: "assets/la-chancha-02.webp", title: "La Chancha" }
+      { src: "assets/circo-orion.jpg", title: "Circo Orion" },
+      { src: "assets/bixo-do-mato.jpg", title: "Bixo do Mato" },
+      { src: "assets/o-touro.jpg", title: "O Touro" },
+      { src: "assets/contracapa.jpg", title: "Contracapa" },
+      { src: "assets/a-fotografia-na-parede.jpg", title: "A fotografia na parede" },
+      { src: "assets/meu-avo-stanislau.jpg", title: "Meu Avô Stanislau" },
+      { src: "assets/la-chancha-01.jpg", title: "La Chancha" },
+      { src: "assets/parabens-a-voce.jpg", title: "Parabéns a você" },
+      { src: "assets/la-chancha-02.jpg", title: "La Chancha" },
+      { src: "assets/um-lugar-bem-longe.jpg", title: "Um Lugar bem Longe" }
     ];
 
     let currentIndex = Math.floor(Math.random() * frames.length);
